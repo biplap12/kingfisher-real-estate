@@ -7,7 +7,7 @@ import { useBannerHeight } from "../../Context/BannerHeightContext.jsx";
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 800);
-  const [menuColor, setMenuColor] = useState("light");
+  const [menuColor, setMenuColornp] = useState("light");
 
   const { bannerHeight } = useBannerHeight();
 
