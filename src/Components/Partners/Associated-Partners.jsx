@@ -83,11 +83,11 @@ const PartnerLogos = () => {
         {logos.map((src, index) => (
           <div
             key={index}
-            className="relative w-[190px] h-[160px] bg-[#f5f5f5] rounded-[10px] border-2 border-[#F5BC6D] p-6 overflow-visible transition-all duration-500 ease-out group hover:border-[#008bf8] hover:shadow-[0_4px_18px_rgba(0,0,0,0.25)] mx-auto flex items-center justify-center"
+            className="relative w-[190px] h-[160px] rounded-[10px] border-2 border-[#F5BC6D] p-6 overflow-visible transition-all duration-500 ease-out group hover:border-white hover:shadow-[0_4px_18px_rgba(0,0,0,0.25)] mx-auto flex items-center justify-center"
           >
             {/* Card-like gradient hover overlays */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10 transition-transform duration-500 ease-out group-hover:-translate-x-full z-10 pointer-events-none rounded-[10px]" />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10 transition-transform duration-500 ease-out group-hover:translate-x-full z-10 pointer-events-none rounded-[10px]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20 transition-transform duration-500 ease-out group-hover:-translate-x-full z-10 pointer-events-none rounded-[10px]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20 transition-transform duration-500 ease-out group-hover:translate-x-full z-10 pointer-events-none rounded-[10px]" />
 
             <img
               src={src}

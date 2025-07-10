@@ -50,7 +50,6 @@ const FloorPlanSelector = () => {
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-20">
         <div className="grid lg:grid-cols-12 gap-16 items-start">
-          
           {/* Plan Selector */}
           <div className="lg:col-span-4 space-y-3">
             {floorPlans.map((plan, index) => (
@@ -59,16 +58,18 @@ const FloorPlanSelector = () => {
                   onClick={() => setSelected(plan)}
                   className={`w-full text-left p-6 rounded-2xl transition-all duration-500 border-2 ${
                     selected.label === plan.label
-                      ? "bg-amber-500 text-white border-amber-600 shadow-lg"
-                      : "bg-white text-gray-800 border-gray-200 hover:border-amber-300 hover:shadow-md"
+                      ? "bg-amber-500 text-white border-[#F6BC6D] shadow-lg"
+                      : "bg-[#0E1C41]  text-[#F6BC6D]  hover:border-[#F6BC6D]  hover:shadow-md"
                   }`}
                 >
                   <div className="flex items-center gap-4 mb-3">
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
-                      selected.label === plan.label
-                        ? "bg-white text-amber-600"
-                        : "bg-amber-100 text-amber-700"
-                    }`}>
+                    <div
+                      className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
+                        selected.label === plan.label
+                          ? "bg-white  text-amber-600"
+                          : "bg-amber-100 text-amber-700"
+                      }`}
+                    >
                       {plan.SN}
                     </div>
                     <span className="text-xl font-light tracking-wide">
@@ -77,11 +78,13 @@ const FloorPlanSelector = () => {
                   </div>
 
                   {/* Details - Always visible but styled differently */}
-                  <div className={`text-sm space-y-2 transition-all duration-300 ${
-                    selected.label === plan.label
-                      ? "text-amber-100"
-                      : "text-gray-600"
-                  }`}>
+                  <div
+                    className={`text-sm space-y-2 transition-all duration-300 ${
+                      selected.label === plan.label
+                        ? "text-amber-100"
+                        : "text-gray-600"
+                    }`}
+                  >
                     <div className="flex justify-between items-center">
                       <span className="font-medium">Units Available</span>
                       <span className="text-lg font-light">{plan.unit}</span>
@@ -94,15 +97,13 @@ const FloorPlanSelector = () => {
                 </button>
               </div>
             ))}
-
-          
           </div>
 
           {/* Image Preview */}
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-8 mt-6">
             <div className=" ">
               <div className="absolute -inset-2rounded-3xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
-              <div className=" bg-white rounded-2xl p-4">
+              <div className=" bg-white rounded-2xl">
                 <div className="overflow-hidden rounded-xl">
                   <img
                     src={selected.image}
@@ -110,22 +111,19 @@ const FloorPlanSelector = () => {
                     className="w-full h-96 lg:h-[600px] object-cover transition-transform duration-700 "
                   />
                 </div>
-                
+
                 {/* Image Overlay Info */}
-                  {/* <div className="absolute top-8 left-8 bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg">
+                {/* <div className="absolute top-8 left-8 bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg">
                     <h3 className="text-xl font-light text-gray-800 mb-1 tracking-wide">
                       {selected.label}
                     </h3>
                     <p className="text-sm text-gray-600">{selected.sqrft}</p>
                   </div> */}
-
-                
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </section>
   );
 };

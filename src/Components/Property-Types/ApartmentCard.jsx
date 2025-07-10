@@ -13,7 +13,7 @@ export default function ApartmentCard({
   return (
     <motion.div
       whileHover={{ scale: 1.03 }}
-      className="rounded-3xl overflow-hidden bg-[#0E1C41]  transition-all duration-300 w-full max-w-sm "
+      className="rounded-xl overflow-hidden bg-[#0E1C41] border border-[#F6BC6D] transition-all duration-300 w-full max-w-sm "
     >
       {/* Image */}
       <div className="h-60 w-full overflow-hidden">
@@ -74,7 +74,7 @@ export default function ApartmentCard({
         </div>
 
         {/* Learn More Button */}
-        <button className="mt-4 w-full rounded-xl border border-zinc-500 text-white font-medium py-2 transition hover:brightness-110">
+        <button className="mt-4 w-full rounded-xl border border-[#F6BC6D] text-white font-medium py-2 transition hover:brightness-110">
           Learn More
         </button>
       </div>

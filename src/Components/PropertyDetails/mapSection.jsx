@@ -162,7 +162,7 @@ const DubaiMapSection = () => {
   const [activeTooltipIndex, setActiveTooltipIndex] = useState(null);
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <section>
       <div className="max-w-6xl mx-auto">
         <MapContainer
           center={[25.1972, 55.2744]}

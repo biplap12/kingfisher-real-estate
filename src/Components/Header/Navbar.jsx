@@ -51,7 +51,7 @@ export default function Sidebar() {
   return (
     <div
       className={`fixed top-0 left-0 w-full z-50 transition duration-300 ${
-        menuColor === "dark" ? "bg-white shadow" : "bg-transparent"
+        menuColor === "dark" ? "bg-[#0E1C41] border-b border-[#F6BC6D] shadow" : "bg-transparent"
       }`}
     >
       <div className="flex items-center justify-between px-6 py-5 transition-all duration-300">

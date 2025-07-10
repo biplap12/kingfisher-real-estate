@@ -4,7 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Navbar from "./Components/Header/Navbar.jsx";
 import Footer from "./Components/Footer/Footer.jsx";
 import useThemeObserver from "./hook/useThemeObserver.js";
-import LayoutWrapper from "./pages/LayoutWrapper.js";
+import LayoutWrapper from "./pages/LayoutWrapper.jsx";
 
 function App() {
   useThemeObserver();

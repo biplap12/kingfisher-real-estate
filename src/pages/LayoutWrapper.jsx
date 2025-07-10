@@ -1,7 +1,7 @@
 // LayoutWrapper.tsx
 import React from "react";
 
-const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {
+const LayoutWrapper = ({ children }) => {
   return (
     <div className="relative min-h-screen w-full text-white overflow-hidden">
       {/* Global Background Gradient Overlay */}

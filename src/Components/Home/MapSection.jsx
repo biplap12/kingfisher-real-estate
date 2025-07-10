@@ -27,11 +27,11 @@ const locations = [
 
 const MapSection = () => {
   return (
-    <section  id="location">
+    <section id="location">
       {/* Header */}
       <div className="max-w-7xl mx-auto">
         <div className="text-center">
-          <h2 className="heading-font tracking-widest text-3xl sm:text-4xl lg:text-6xl font-extralight text-slate-800 mb-4">
+          <h2 className="heading-font tracking-widest text-3xl sm:text-4xl lg:text-6xl font-extralight text-slate-800 mb-10">
             LOCATION
           </h2>
         </div>
@@ -44,16 +44,16 @@ const MapSection = () => {
           {locations.map((item, i) => (
             <div
               key={i}
-              className="flex items-start sm:items-center gap-4 sm:gap-6 p-4 sm:p-6 rounded-2xl bg-white/60 border border-slate-200/50 hover:bg-white/80 hover:shadow-sm transition-all duration-500"
+              className="flex items-start sm:items-center gap-4 sm:gap-6 p-4 sm:p-6 rounded-2xl  bg-[#0E1C41]  border border-[#F6BC6D] hover:bg-[#FE9A00] hover:shadow-sm transition-all duration-500"
             >
               <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-amber-100 to-amber-50 rounded-full flex items-center justify-center transition-all duration-300">
                 <div className="text-amber-700">{item.icon}</div>
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-base sm:text-xl font-light text-slate-800 mb-1 tracking-wide">
+                <p className="text-base sm:text-xl font-light text-white mb-1 tracking-wide">
                   {item.time}
                 </p>
-                <p className="text-sm text-slate-600 font-medium leading-relaxed">
+                <p className="text-sm text-white/60 font-medium leading-relaxed">
                   {item.label}
                 </p>
               </div>
@@ -63,7 +63,7 @@ const MapSection = () => {
 
         {/* Map without padding */}
         <div className="lg:col-span-3  px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20 space-y-6 sm:space-y-8 h-fit my-auto">
-          <div className="w-full h-full rounded-2xl overflow-hidden">
+          <div className="w-full h-full rounded-2xl mt-5 overflow-hidden">
             <DubaiMapSection />
           </div>
         </div>
