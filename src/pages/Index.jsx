@@ -14,6 +14,8 @@ import PropertyViewPage from "./PropertyViewPage.jsx";
 import PropertyApartments from "../Components/Property-Types/property-types.jsx";
 import PropertyDetails from "../Components/PropertyDetails/propertydetails.jsx";
 
+import OurTeam from "./OurTeam.jsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -61,6 +63,10 @@ const router = createBrowserRouter([
       },{
         path:"/services",
         element:<OurServices/>
+      }
+      ,{
+        path:"/team",
+        element:<OurTeam/>
       }
     ],
   },

@@ -13,7 +13,7 @@ export default function ApartmentCard({
   return (
     <motion.div
       whileHover={{ scale: 1.03 }}
-      className="rounded-3xl overflow-hidden bg-white transition-all duration-300 w-full max-w-sm "
+      className="rounded-3xl overflow-hidden bg-[#0E1C41]  transition-all duration-300 w-full max-w-sm "
     >
       {/* Image */}
       <div className="h-60 w-full overflow-hidden">
@@ -27,14 +27,14 @@ export default function ApartmentCard({
       {/* Content */}
       <div className="p-5 space-y-4">
         <div className="space-y-1">
-          <h2 className="text-xl font-semibold text-gray-900">{title}</h2>
-          <div className="flex items-center text-sm text-gray-500 gap-2">
+          <h2 className="text-xl font-semibold text-white">{title}</h2>
+          <div className="flex items-center text-sm text-white gap-2">
             <MapPin className="w-4 h-4 text-primary" />
             {location}
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-3 text-sm text-gray-600">
+        <div className="flex flex-wrap gap-3 text-sm text-white">
           <div className="flex items-center gap-1">
             <Bed className="w-4 h-4" />
             {bedrooms} Beds
@@ -49,23 +49,23 @@ export default function ApartmentCard({
           </div>
         </div>
 
-        <div className="border-t pt-3 space-y-2 text-sm text-gray-700">
+        <div className="border-t pt-3 space-y-2 text-sm text-white">
           <div>
-            <h3 className="font-medium text-gray-800">Ranging From</h3>
+            <h3 className="font-medium text-gray-200">Ranging From</h3>
             <p className="text-sm">
               AED 10.61 M | INR 24.6 CR | USD 2.91 M | EUR 2.87 M | GBP 2.36 M
             </p>
           </div>
           <div>
-            <h3 className="font-medium text-gray-800">To</h3>
+            <h3 className="font-medium text-gray-200">To</h3>
             <p className="text-sm">
               AED 18.75 M | INR 43.4 CR | USD 5.14 M | EUR 5.08 M | GBP 4.19 M
             </p>
           </div>
           <div>
-            <h3 className="font-medium text-gray-800">Handover</h3>
+            <h3 className="font-medium text-gray-200">Handover</h3>
             <p>Dec 2027</p>
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs text-gray-300 mt-1">
               *Subject to availability
               <br />
               *Exchange rates may vary
@@ -74,7 +74,7 @@ export default function ApartmentCard({
         </div>
 
         {/* Learn More Button */}
-        <button className="mt-4 w-full rounded-xl border border-zinc-500 text-black font-medium py-2 transition hover:brightness-110">
+        <button className="mt-4 w-full rounded-xl border border-zinc-500 text-white font-medium py-2 transition hover:brightness-110">
           Learn More
         </button>
       </div>
