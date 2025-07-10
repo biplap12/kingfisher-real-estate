@@ -12,7 +12,8 @@ import PartnerLogos from "../Components/Partners/Associated-Partners.jsx";
 import Home1 from "../Components/Home/home.jsx";
 
 import OurStorySlider from "../Components/Home/OurStorySlider.jsx";
-import AbcPage from "../Components/abc.jsx";
+import AboutPage from "../Components/Home/AboutPage.jsx";
+import Testimonial from "../Components/Home/customerOponion.jsx";
 
 const Home = () => {
   return (
@@ -25,18 +26,16 @@ const Home = () => {
           <AbcPage />
         </div> */}
       </section>
-
-      {/* <section className="min-h-screen" id="our-story">
-        <OurStorySlider
-          // title={text[0].title}
-          // description={text[0].description}
-          // images={galleryData || []}
-          // loading={loading}
-        />
-      </section> */}
       <section>
-        <Gallery />
+        <AboutPage/>
       </section>
+
+       <section className="min-h-screen" id="our-story">
+        <OurStorySlider/>
+      </section> 
+      {/* <section>
+        <Gallery />
+      </section> */}
       <section>
         <Whykingfisher />
       </section>
@@ -52,6 +51,9 @@ const Home = () => {
       </section> */}
       <section>
         <FloorPlanSelector />
+      </section>
+      <section>
+        <Testimonial/>
       </section>
       <section>
         <PartnerLogos />

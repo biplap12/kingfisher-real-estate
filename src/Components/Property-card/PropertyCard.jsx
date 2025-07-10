@@ -53,7 +53,7 @@ const PropertyCard = ({ data }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
+    <div className="min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
@@ -77,7 +77,7 @@ const PropertyCard = ({ data }) => {
             return (
               <div
                 key={property.id || globalIndex}
-                className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 group"
+                className=" rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border  group"
               >
                 {/* Image Gallery */}
                 <div className="p-6 pb-4">
@@ -94,14 +94,14 @@ const PropertyCard = ({ data }) => {
                 <div className="px-6 pb-6">
                   {/* Title and Price */}
                   <div className="mb-6">
-                    <h2 className="text-xl lg:text-2xl font-bold  text-gray-900 mb-2 group-hover:text-gray-700 transition-colors">
+                    <h2 className="text-xl lg:text-2xl font-bold  text-white mb-2 group-hover:text-white-700 transition-colors">
                       {property.name}
                     </h2>
                     <div className="flex items-center justify-between">
                       <p className="text-xl lg:text-2xl font-bold text-green-600 paragraph-font tracking-wide">
-                        {property.price}
+                       $ {property.price}
                       </p>
-                      <div className="flex items-center text-gray-500">
+                      <div className="flex items-center text-white">
                         <MapPin size={16} className="mr-1" />
                         <span className="text-sm">{property.location}</span>
                       </div>
@@ -110,48 +110,48 @@ const PropertyCard = ({ data }) => {
 
                   {/* Property Features */}
                   <div className="grid grid-cols-2 gap-3 mb-6">
-                    <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl">
-                      <div className="p-2 bg-blue-100 rounded-lg">
-                        <Home size={16} className="text-blue-600" />
+                    <div className="flex items-center space-x-3 p-3 border rounded-xl">
+                      <div className="p-2 bg-[#fff4ab] rounded-lg">
+                        <Home size={16} className="text-blue-800" />
                       </div>
                       <div>
                         <p className="text-xs text-gray-500 uppercase font-bold">
                           Type
                         </p>
-                        <p className="font-medium text-gray-900 ">
+                        <p className="font-medium ">
                           {property.propertyType.name}
                         </p>
                       </div>
                     </div>
 
-                    <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl">
-                      <div className="p-2 bg-pink-100 rounded-lg">
+                    <div className="flex items-center space-x-3 p-3 border rounded-xl">
+                      <div className="p-2 bg-[#fff4ab] rounded-lg">
                         <BedDouble size={16} className="text-pink-600" />
                       </div>
                       <div>
                         <p className="text-xs text-gray-500 uppercase tracking-wide font-bold">
                           Bedrooms
                         </p>
-                        <p className="font-medium text-gray-900 paragraph-font tracking-wide">
-                          {property.Beds}
+                        <p className="font-medium text-white paragraph-font tracking-wide">
+                          {property.Beds || 0}
                         </p>
                       </div>
                     </div>
 
-                    <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl">
-                      <div className="p-2 bg-purple-100 rounded-lg">
+                    <div className="flex items-center space-x-3 p-3 border rounded-xl">
+                      <div className="p-2 bg-[#fff4ab] rounded-lg">
                         <UserCog2 size={16} className="text-purple-600" />
                       </div>
                       <div>
-                        <p className="text-xs text-gray-500 uppercase tracking-wide font-bold">
+                        <p className="text-xs text-white uppercase tracking-wide font-bold">
                           Developer
                         </p>
-                        <p className="font-medium text-gray-900 paragraph-font tracking-wide">
+                        <p className="font-medium text-white paragraph-font tracking-wide">
                           {property.developer}
                         </p>
                       </div>
                     </div>
-                    <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl capitalize">
+                    <div className="flex items-center space-x-3 p-3 border rounded-xl capitalize">
                       <div
                         className={`p-2 rounded-lg ${
                           property.Status === "available"
@@ -166,7 +166,7 @@ const PropertyCard = ({ data }) => {
                         )}
                       </div>
                       <div>
-                        <p className="text-xs text-gray-500 uppercase tracking-wide font-bold">
+                        <p className="text-xs text-white uppercase tracking-wide font-bold">
                           Status
                         </p>
                         <p

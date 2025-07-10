@@ -19,13 +19,13 @@ import api from "../services/api";
 
 export default function About() {
   const divRef = useRef(null);
-  const { setMenuColor } = useContext(MenuContext);
+  // const { setMenuColor } = useContext(MenuContext);
   const isVisible = useInView(divRef, { once: false });
   const [teamMembers, setTeamMembers] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setMenuColor("dark");
+    // setMenuColor("dark");
     fetchTeamMembers();
   }, [isVisible]);
 

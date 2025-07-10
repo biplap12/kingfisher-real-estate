@@ -14,7 +14,6 @@ const ApartmentCards = [
     bathrooms: 2,
     size: "1350 sqft",
     imageUrl: "/gallery/bg.jpg",
-
   },
   {
     title: "Modern Villa",
@@ -153,9 +152,6 @@ const PropertyTypes = () => {
               price={card.price}
               bedrooms={card.bedrooms}
               bathrooms={card.bathrooms}
-              size={card.size}
-              imageUrl={card.imageUrl}
-              price={card.price}
               size={card.size}
               imageUrl={card.imageUrl}
             />

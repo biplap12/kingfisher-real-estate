@@ -9,12 +9,12 @@ import { BannerHeightProvider } from "./Context/BannerHeightContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <MenuProvider>
+    {/* <MenuProvider> */}
       <BannerHeightProvider>
       <RouterProvider router={router}>
         <App />
       </RouterProvider>
       </BannerHeightProvider>
-    </MenuProvider>
+    {/* </MenuProvider> */}
   </StrictMode>
 );

@@ -4,13 +4,13 @@ import { MenuContext } from "../context/MenuContext";
 
 const Section = ({ bg = "light", children }) => {
   const ref = useRef();
-  const { setMenuColor } = useContext(MenuContext);
+  // const { setMenuColor } = useContext(MenuContext);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setMenuColor(bg); // 'light' or 'dark'
+          // setMenuColor(bg); // 'light' or 'dark'
         }
       },
       {

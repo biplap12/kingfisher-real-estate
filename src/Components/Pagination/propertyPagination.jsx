@@ -20,7 +20,7 @@ const SimplePagination = ({ currentPage, totalPages, onPageChange }) => {
       <button
         onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="p-2 rounded-lg border border-gray-200 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        className="p-2 rounded-lg border border-gray-200 hover:bg-[#F6BC6D] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
       >
         <ChevronLeft size={20} />
       </button>
@@ -32,7 +32,7 @@ const SimplePagination = ({ currentPage, totalPages, onPageChange }) => {
           className={`px-4 py-2 rounded-lg font-medium transition-colors ${
             currentPage === page
               ? "bg-gray-900 text-white"
-              : "bg-white border border-gray-200 hover:bg-gray-50"
+              : " border border-gray-200 hover:bg-[#F6BC6D] hover:text-white"
           }`}
         >
           {page}
@@ -42,7 +42,7 @@ const SimplePagination = ({ currentPage, totalPages, onPageChange }) => {
       <button
         onClick={() => handlePageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="p-2 rounded-lg border border-gray-200 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        className="p-2 rounded-lg border border-gray-200 hover:bg-[#F6BC6D] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
       >
         <ChevronRight size={20} />
       </button>
