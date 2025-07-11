@@ -4,13 +4,21 @@ import { MenuContext } from "../context/MenuContext";
 
 const Section = ({ bg = "light", children }) => {
   const ref = useRef();
+<<<<<<< HEAD
   const { setMenuColor } = useContext(MenuContext);
+=======
+  // const { setMenuColor } = useContext(MenuContext);
+>>>>>>> origin/dev_biplap
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
+<<<<<<< HEAD
           setMenuColor(bg); // 'light' or 'dark'
+=======
+          // setMenuColor(bg); // 'light' or 'dark'
+>>>>>>> origin/dev_biplap
         }
       },
       {

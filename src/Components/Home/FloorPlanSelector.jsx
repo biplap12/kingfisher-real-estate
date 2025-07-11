@@ -50,7 +50,10 @@ const FloorPlanSelector = () => {
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-20">
         <div className="grid lg:grid-cols-12 gap-16 items-start">
+<<<<<<< HEAD
           
+=======
+>>>>>>> origin/dev_biplap
           {/* Plan Selector */}
           <div className="lg:col-span-4 space-y-3">
             {floorPlans.map((plan, index) => (
@@ -59,6 +62,7 @@ const FloorPlanSelector = () => {
                   onClick={() => setSelected(plan)}
                   className={`w-full text-left p-6 rounded-2xl transition-all duration-500 border-2 ${
                     selected.label === plan.label
+<<<<<<< HEAD
                       ? "bg-amber-500 text-white border-amber-600 shadow-lg"
                       : "bg-white text-gray-800 border-gray-200 hover:border-amber-300 hover:shadow-md"
                   }`}
@@ -69,6 +73,20 @@ const FloorPlanSelector = () => {
                         ? "bg-white text-amber-600"
                         : "bg-amber-100 text-amber-700"
                     }`}>
+=======
+                      ? "bg-amber-500 text-white border-[#F6BC6D] shadow-lg"
+                      : "bg-[#0E1C41]  text-[#F6BC6D]  hover:border-[#F6BC6D]  hover:shadow-md"
+                  }`}
+                >
+                  <div className="flex items-center gap-4 mb-3">
+                    <div
+                      className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
+                        selected.label === plan.label
+                          ? "bg-white  text-amber-600"
+                          : "bg-amber-100 text-amber-700"
+                      }`}
+                    >
+>>>>>>> origin/dev_biplap
                       {plan.SN}
                     </div>
                     <span className="text-xl font-light tracking-wide">
@@ -77,11 +95,21 @@ const FloorPlanSelector = () => {
                   </div>
 
                   {/* Details - Always visible but styled differently */}
+<<<<<<< HEAD
                   <div className={`text-sm space-y-2 transition-all duration-300 ${
                     selected.label === plan.label
                       ? "text-amber-100"
                       : "text-gray-600"
                   }`}>
+=======
+                  <div
+                    className={`text-sm space-y-2 transition-all duration-300 ${
+                      selected.label === plan.label
+                        ? "text-amber-100"
+                        : "text-gray-600"
+                    }`}
+                  >
+>>>>>>> origin/dev_biplap
                     <div className="flex justify-between items-center">
                       <span className="font-medium">Units Available</span>
                       <span className="text-lg font-light">{plan.unit}</span>
@@ -91,6 +119,7 @@ const FloorPlanSelector = () => {
                       <span className="text-sm">{plan.sqrft}</span>
                     </div>
                   </div>
+<<<<<<< HEAD
 
                   {/* Active indicator */}
                   {selected.label === plan.label && (
@@ -108,6 +137,18 @@ const FloorPlanSelector = () => {
             <div className=" ">
               <div className="absolute -inset-2rounded-3xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
               <div className=" bg-white rounded-2xl p-4 shadow-2xl">
+=======
+                </button>
+              </div>
+            ))}
+          </div>
+
+          {/* Image Preview */}
+          <div className="lg:col-span-8 mt-6">
+            <div className=" ">
+              <div className="absolute -inset-2rounded-3xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+              <div className=" bg-white rounded-2xl">
+>>>>>>> origin/dev_biplap
                 <div className="overflow-hidden rounded-xl">
                   <img
                     src={selected.image}
@@ -115,28 +156,44 @@ const FloorPlanSelector = () => {
                     className="w-full h-96 lg:h-[600px] object-cover transition-transform duration-700 "
                   />
                 </div>
+<<<<<<< HEAD
                 
                 {/* Image Overlay Info */}
                   {/* <div className="absolute top-8 left-8 bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg">
+=======
+
+                {/* Image Overlay Info */}
+                {/* <div className="absolute top-8 left-8 bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg">
+>>>>>>> origin/dev_biplap
                     <h3 className="text-xl font-light text-gray-800 mb-1 tracking-wide">
                       {selected.label}
                     </h3>
                     <p className="text-sm text-gray-600">{selected.sqrft}</p>
                   </div> */}
+<<<<<<< HEAD
 
                 
+=======
+>>>>>>> origin/dev_biplap
               </div>
             </div>
           </div>
         </div>
       </div>
+<<<<<<< HEAD
 
       {/* Bottom Divider */}
       <div className="max-w-6xl mx-auto px-6">
         <div className="h-px bg-gray-200"></div>
       </div>
+=======
+>>>>>>> origin/dev_biplap
     </section>
   );
 };
 
+<<<<<<< HEAD
 export default FloorPlanSelector;
+=======
+export default FloorPlanSelector;
+>>>>>>> origin/dev_biplap

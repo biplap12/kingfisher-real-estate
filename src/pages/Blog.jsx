@@ -263,7 +263,11 @@ const BlogPage = () => {
   const currentPosts = blogPosts.slice(indexOfFirstPost, indexOfLastPost);
 
   return (
+<<<<<<< HEAD
     <div className="min-h-screen w-full bg-gray-50">
+=======
+    <div className="min-h-screen w-full">
+>>>>>>> origin/dev_biplap
       <style jsx>{`
         @keyframes fadeInUp {
           0% {
@@ -330,7 +334,11 @@ const BlogPage = () => {
 
         {/* Pagination */}
         {totalPages > 1 && (
+<<<<<<< HEAD
           <div className="flex justify-center mt-12">
+=======
+          <div className="flex justify-center mt-12 ">
+>>>>>>> origin/dev_biplap
             <div className="flex items-center space-x-2">
               <button
                 onClick={() => setCurrentPage((prev) => prev - 1)}
@@ -338,7 +346,11 @@ const BlogPage = () => {
                 className={`p-2 rounded-full transition-colors duration-200 ${
                   currentPage === 1
                     ? "text-gray-400 cursor-not-allowed"
+<<<<<<< HEAD
                     : "text-gray-600 hover:text-gray-800"
+=======
+                    : "text-white hover:text-gray-800"
+>>>>>>> origin/dev_biplap
                 }`}
               >
                 <ChevronLeft className="w-5 h-5" />
@@ -351,7 +363,11 @@ const BlogPage = () => {
                     className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
                       page === currentPage
                         ? "bg-[#f6bc6d] text-white"
+<<<<<<< HEAD
                         : "text-gray-600 hover:bg-gray-100"
+=======
+                        : "text-[#f6bc6d] hover:bg-white"
+>>>>>>> origin/dev_biplap
                     }`}
                   >
                     {page}
@@ -380,7 +396,11 @@ const BlogPage = () => {
               No posts found
             </h3>
             <p className="text-gray-600 mb-6">
+<<<<<<< HEAD
               We couldn’t find any blog posts at the moment.
+=======
+              We couldn&apos;t find any blog posts at the moment.
+>>>>>>> origin/dev_biplap
             </p>
           </div>
         )}

@@ -8,10 +8,20 @@ import AllPropertypage from "./AllPropertypage.jsx";
 import About from "./About.jsx";
 import Contact from "./Contact.jsx";
 import Blog from "./Blog.jsx";
+<<<<<<< HEAD
 import Property_Gallary from "../Components/Property-View/Gallery.jsx";
 import BlogViewer from "../Components/Blog/BlogView.jsx";
 import OurServices from "./OurServices.jsx";
 import PropertyViewPage from "./PropertyViewPage.jsx";
+=======
+import BlogViewer from "../Components/Blog/BlogView.jsx";
+import OurServices from "./OurServices.jsx";
+import PropertyViewPage from "./PropertyViewPage.jsx";
+import PropertyApartments from "../Components/Property-Types/property-types.jsx";
+import PropertyDetails from "../Components/PropertyDetails/propertydetails.jsx";
+
+import OurTeam from "./OurTeam.jsx";
+>>>>>>> origin/dev_biplap
 
 const router = createBrowserRouter([
   {
@@ -35,6 +45,17 @@ const router = createBrowserRouter([
         element: <PropertyViewPage/>,
       },
       {
+<<<<<<< HEAD
+=======
+        path: "/properties/apartments",
+        element: <PropertyApartments />,
+      },
+      {
+        path: "/properties/apartments/apartments",
+        element: <PropertyDetails />,
+      },
+      {
+>>>>>>> origin/dev_biplap
         path: "/about",
         element: <About />,
       },
@@ -53,6 +74,13 @@ const router = createBrowserRouter([
         path:"/services",
         element:<OurServices/>
       }
+<<<<<<< HEAD
+=======
+      ,{
+        path:"/team",
+        element:<OurTeam/>
+      }
+>>>>>>> origin/dev_biplap
     ],
   },
   {

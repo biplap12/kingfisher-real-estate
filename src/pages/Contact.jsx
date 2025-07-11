@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import Breadcrumbs from "../Components/Breadcrumbs/Breadcrumbs";
 import { Link } from "react-router-dom";
@@ -218,6 +219,16 @@ const ContactForm = () => {
           </div>
         </form>
       </div>
+=======
+import ContactFormSection from "../Components/Contact/formSection";
+import ContactHeroSection from "../Components/Contact/heroSection";
+
+const ContactForm = () => {
+  return (
+    <div className=" min-h-screen text-white font-sans text-lg mb-10">
+      <ContactHeroSection />
+      <ContactFormSection />
+>>>>>>> origin/dev_biplap
     </div>
   );
 };

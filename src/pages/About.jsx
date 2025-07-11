@@ -5,7 +5,10 @@ import { TbArrowUpDashed } from "react-icons/tb";
 import { MenuContext } from "../state/MenuContext";
 import Breadcrumbs from "../Components/Breadcrumbs/Breadcrumbs";
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
 import Slider from "../Components/Home/Slider";
+=======
+>>>>>>> origin/dev_biplap
 import {
   FaArrowRight,
   FaBullseye,
@@ -20,13 +23,21 @@ import api from "../services/api";
 
 export default function About() {
   const divRef = useRef(null);
+<<<<<<< HEAD
   const { setMenuColor } = useContext(MenuContext);
+=======
+  // const { setMenuColor } = useContext(MenuContext);
+>>>>>>> origin/dev_biplap
   const isVisible = useInView(divRef, { once: false });
   const [teamMembers, setTeamMembers] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+<<<<<<< HEAD
     setMenuColor("dark");
+=======
+    // setMenuColor("dark");
+>>>>>>> origin/dev_biplap
     fetchTeamMembers();
   }, [isVisible]);
 

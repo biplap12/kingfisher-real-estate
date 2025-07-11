@@ -28,6 +28,7 @@ const listingData = {
 
 export default function Property_Gallary({ data = listingData }) {
   const [mainImage, setMainImage] = useState(data.mainImage);
+<<<<<<< HEAD
   const divRef = useRef(null);
   const { setMenuColor } = useContext(MenuContext);
 
@@ -36,6 +37,16 @@ export default function Property_Gallary({ data = listingData }) {
   useEffect(() => {
     setMenuColor("dark");
   }, [isVisible]);
+=======
+  // const divRef = useRef(null);
+  // const { setMenuColor } = useContext(MenuContext);
+
+  // const isVisible = useInView(divRef, { once: false });
+
+  // useEffect(() => {
+  //   setMenuColor("dark");
+  // }, [isVisible]);
+>>>>>>> origin/dev_biplap
 
   return (
     <section className="lightSection min-h-screen mt-20 p-4 md:p-6 font-sans ">
