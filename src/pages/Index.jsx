@@ -13,8 +13,7 @@ import OurServices from "./OurServices.jsx";
 import PropertyViewPage from "./PropertyViewPage.jsx";
 import PropertyApartments from "../Components/Property-Types/property-types.jsx";
 import PropertyDetails from "../Components/PropertyDetails/propertydetails.jsx";
-
-import OurTeam from "./OurTeam.jsx";
+import OurTeam from "./ourteam.jsx";
 
 const router = createBrowserRouter([
   {
