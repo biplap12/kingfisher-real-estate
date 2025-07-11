@@ -210,16 +210,20 @@
 
 // export default HeroSection;
 
-"use client";
 import {
   CircleArrowRight,
   Mouse,
   Building2,
   Coins,
   TrendingUp,
+  Home,
+  Wrench,
+  Award,
+  Globe,
 } from "lucide-react";
 import React from "react";
 import { motion } from "framer-motion";
+import CountUp from "react-countup";
 
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
@@ -248,11 +252,10 @@ const HeroSection = () => {
           variants={fadeUp}
         >
           <h1 className="text-4xl md:text-6xl font-light leading-tight max-w-4xl mx-auto md:mx-0">
-            We integrate <br />
+            We integrate Real economy <br />
             <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-300">
-              Real economy
+              into the{" "}
             </span>{" "}
-            into the{" "}
             <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
               Digital one
             </span>
@@ -303,10 +306,10 @@ const HeroSection = () => {
           transition={{ delay: 1, duration: 0.8 }}
         >
           <div className="flex gap-4">
-            <button className="bg-[#1b58ff] hover:bg-blue-300 text-white hover:text-black font-semibold px-6 py-3 rounded-full flex items-center gap-3 transition-all shadow-lg">
+            <button className="bg-[#1b58ff] hover:bg-blue-300 text-white hover:text-black font-semibold px-6 py-3 rounded-xl flex items-center gap-3 transition-all shadow-lg">
               Buy Tokens <CircleArrowRight size={18} />
             </button>
-            <button className="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-full flex items-center gap-3 backdrop-blur-md transition-all border ">
+            <button className="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-xl flex items-center gap-3 backdrop-blur-md transition-all border ">
               White Paper{" "}
               <span className="text-white rotate-90">
                 <CircleArrowRight size={18} />

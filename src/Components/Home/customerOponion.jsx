@@ -65,7 +65,7 @@ export default function Testimonial() {
         </h2>
 
         <fieldset className="relative w-full min-h-[400px] border-2 border-[#F6BC6D] p-6 sm:p-10 text-[#1a2a67] rounded-lg">
-          <legend className="text-xl sm:text-2xl font-semibold px-4 text-center bg-[#203eb5] text-white rounded-md mx-auto">
+          <legend className="text-xl sm:text-2xl font-semibold px-4  text-white rounded-md">
             {t.name}
           </legend>
 

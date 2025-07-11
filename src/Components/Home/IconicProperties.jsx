@@ -400,9 +400,20 @@
 //   );
 // }
 
-// import { Building, MapPin } from "lucide-react";
+// import {
+//   AlignLeft,
+//   Bath,
+//   BedDouble,
+//   Building,
+//   ChevronLeft,
+//   ChevronRight,
+//   CircleDollarSign,
+//   MapPin,
+//   MoveLeft,
+// } from "lucide-react";
 // import React, { useEffect, useState } from "react";
 // import api from "../../services/api";
+// import { Link } from "react-router-dom";
 
 // const IconicProperties = () => {
 //   const [properties, setProperties] = useState([]);
@@ -433,68 +444,76 @@
 //       </h2>
 
 //       {loading ? (
-//         <div className="col-span-3 text-center py-20">
+//         <div className="text-center py-20">
 //           <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mx-auto"></div>
 //           <p className="mt-4 text-gray-600">Loading properties...</p>
 //         </div>
 //       ) : properties?.length === 0 ? (
-//         <div className="col-span-3 text-center py-20">
+//         <div className="text-center py-20">
 //           <p className="text-gray-600">No properties found.</p>
 //         </div>
 //       ) : (
-//         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+//         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 //           {properties.map((p, index) => (
 //             <div
 //               key={p._id || index}
-//               className="relative group rounded-md w-full overflow-hidden"
+//               className="group rounded-xl overflow-hidden  transition hover:shadow-lg "
 //               style={{ height: "500px" }}
 //             >
-//               {/* Image */}
-//               <img
-//                 src={p.mainImage || ""}
-//                 alt={p.name || "Property Image"}
-//                 className="w-full h-full object-cover rounded-md"
-//                 onError={(e) => {
-//                   e.currentTarget.src =
-//                     "https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?auto=format&fit=crop&w=1170&q=80";
-//                 }}
-//               />
-
-//               {/* Overlay on hover */}
-//               <div className="absolute inset-0 bg-primary-color bg-opacity-70 text-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out rounded-md flex flex-col">
-//                 <div className="max-w-[500px] overflow-hidden text-ellipsis whitespace-nowrap px-4 py-2 bg-primary-color bg-opacity-50">
-//                   <h3 className="text-3xl font-bold leading-tight">
-//                     {p.name || "Property Name"}
-//                   </h3>
-//                 </div>
-
-//                 <div className="p-6 flex flex-col gap-4 justify-between flex-grow">
-//                   <div>
-//                     <h4 className="text-lg font-semibold line-clamp-2">
-//                       {p.description || "Property Description"}
-//                     </h4>
-//                     <div className="flex justify-between mt-2">
-//                       <p className="text-sm flex items-center">
-//                         <MapPin size={16} className="mr-1 text-amber-500" />
-//                         {p.location || "Unknown"}
-//                       </p>
-//                       <p className="text-sm flex items-center">
-//                         <Building size={16} className="mr-1 text-amber-500" />
-//                         {p.type || "Apartment"}
-//                       </p>
-//                     </div>
-//                   </div>
-//                 </div>
-
-//                 {/* Logo or Action Button */}
-//                 <div className="mt-auto self-end m-5">
-//                   <div className="rounded-full hover:bg-white/20 p-2 transition">
-//                     <img
-//                       src="/logo/icon.png"
-//                       alt="logo icon"
-//                       className="h-8 w-8 object-contain"
+//               {/* Property Image */}
+//               <div className="relative">
+//                 <img
+//                   src={p.mainImage || ""}
+//                   alt={p.name || "Property Image"}
+//                   className="w-full h-[380px] object-cover"
+//                   onError={(e) => {
+//                     e.currentTarget.src =
+//                       "https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?auto=format&fit=crop&w=1170&q=80";
+//                   }}
+//                 />
+//                 <button className="hidden group-hover:flex absolute left-0 top-0 h-full w-[50px] bg-slate-900/10 z-10 items-center     justify-center cursor-pointer">
+//                   <span className="p-2 transition-all duration-1000 ease-in-out rounded-full">
+//                     <ChevronLeft
+//                       size={24}
+//                       className="text-white  cursor-pointer"
 //                     />
-//                   </div>
+//                   </span>
+//                 </button>
+//                 <button className="hidden group-hover:flex absolute right-0 top-0 h-full w-[50px] bg-slate-900/10 z-10 items-center     justify-center cursor-pointer">
+//                   <span className="p-2 transition rounded-full">
+//                     <ChevronRight
+//                       size={24}
+//                       className="text-white  cursor-pointer"
+//                     />
+//                   </span>
+//                 </button>
+//               </div>
+//               {/* Content Section */}
+//               <div className="flex flex-col justify-between p-4 bg-[#0B1735]">
+//                 {/* Header */}
+//                 <div className="flex justify-between items-center mb-3">
+//                   <h3 className="text-xl font-semibold text-white">
+//                     $ 500,000
+//                   </h3>
+//                   cursor-pointer
+//                   <button className="text-sm bg-[#fff] text-[#092b80] px-4 py-1.5 rounded-[8px]  transition">
+//                     View Details
+//                   </button>
+//                 </div>
+
+//                 {/* Info */}
+//                 <div className="border rounded-sm px-5 p-1 flex justify-around items-center text-sm h-[41px] text-zinc-400">
+//                   <p className="flex items-center gap-2">
+//                     <BedDouble size={16} className="mr-1 " />
+//                     <span>2 Bedrooms</span>
+//                   </p>
+//                   <div className="w-px h-10 border-l mx-2" />
+//                   <p className="flex items-center gap-2">
+//                     <Bath size={16} className="mr-1 " />
+//                     <span>1 Bath</span>
+//                   </p>
+//                   <div className="w-px h-10 border-l mx-2" />
+//                   <p>1000 sqft</p>
 //                 </div>
 //               </div>
 //             </div>
@@ -506,37 +525,29 @@
 // };
 
 // export default IconicProperties;
-
-import { ArrowRight, Building, CircleDollarSign, MapPin } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import { Bath, BedDouble, ArrowLeft, ArrowRight } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
 import api from "../../services/api";
-import { Link, useNavigate } from "react-router-dom";
-
-const formatCurrency = (value) =>
-  new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    maximumFractionDigits: 0,
-  }).format(value);
-
-const ribbonColor = {
-  available: "bg-green-500",
-  sold: "bg-red-500",
-  pending: "bg-yellow-400",
-};
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const IconicProperties = () => {
   const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const navigate = useNavigate();
+  // Refs for navigation
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
 
   useEffect(() => {
     const fetchProperties = async () => {
       try {
         const res = await api.get("/properties/active");
         if (res.data.success) {
-          setProperties(res.data.data.slice(0, 3));
+          setProperties(res.data.data.slice(0, 6));
         }
       } catch (err) {
         console.error("Error fetching properties:", err);
@@ -554,126 +565,102 @@ const IconicProperties = () => {
       </h2>
 
       {loading ? (
-        <div className="text-center py-20 col-span-3">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mx-auto"></div>
+        <div className="text-center py-20">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mx-auto" />
           <p className="mt-4 text-gray-600">Loading properties...</p>
         </div>
       ) : properties.length === 0 ? (
-        <div className="text-center py-20 col-span-3">
+        <div className="text-center py-20">
           <p className="text-gray-600">No properties found.</p>
         </div>
       ) : (
-        <>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {properties.map((p) => {
-              const status = p.status?.toLowerCase();
-              return (
+        <div className="relative">
+          {/* Swiper */}
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            slidesPerView={1}
+            spaceBetween={24}
+            loop
+            autoplay={{ delay: 3000 }}
+            onBeforeInit={(swiper) => {
+              if (typeof swiper.params.navigation !== "boolean") {
+                swiper.params.navigation.prevEl = prevRef.current;
+                swiper.params.navigation.nextEl = nextRef.current;
+              }
+            }}
+            pagination={{
+              el: ".custom-pagination",
+              clickable: true,
+            }}
+            breakpoints={{
+              640: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+          >
+            {properties.map((p, idx) => (
+              <SwiperSlide key={p._id ?? idx}>
                 <div
-                  key={p._id}
-                  className="relative group rounded-md w-full overflow-hidden"
+                  className="group rounded-xl overflow-hidden transition hover:shadow-lg bg-white"
                   style={{ height: "500px" }}
                 >
-                  {/* Image */}
-                  <img
-                    src={p.mainImage || ""}
-                    alt={p.name}
-                    className="w-full h-full object-cover rounded-md"
-                    onError={(e) => {
-                      e.currentTarget.src =
-                        "https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?auto=format&fit=crop&w=1170&q=80";
-                    }}
-                  />
-
-                  {/* STATUS RIBBON */}
-                  {status && (
-                    <div
-                      className={`absolute top-4 left-0 px-4 py-1 text-xs font-bold text-white uppercase ${
-                        ribbonColor[status] || "bg-gray-500"
-                      } rounded-r-md shadow-md`}
-                    >
-                      {status}
-                    </div>
-                  )}
-
-                  {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-secondary-color bg-opacity-70 text-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out rounded-md flex flex-col">
-                    {/* Title strip */}
-                    <div className="max-w-[500px] overflow-hidden text-ellipsis whitespace-nowrap px-4 py-2 bg-secondary-color bg-opacity-50">
-                      <h3 className="text-3xl font-bold leading-tight">
-                        {p.name}
+                  <div className="relative">
+                    <img
+                      src={p.mainImage}
+                      alt={p.name}
+                      className="w-full h-[380px] object-cover"
+                      onError={(e) => {
+                        e.currentTarget.src =
+                          "https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?auto=format&fit=crop&w=1170&q=80";
+                      }}
+                    />
+                  </div>
+                  <div className="flex flex-col justify-between p-4 bg-[#0B1735] h-[120px]">
+                    <div className="flex justify-between mb-3">
+                      <h3 className="text-xl font-semibold text-white">
+                        $ 500,000
                       </h3>
+                      <button className="text-sm bg-white text-[#092b80] px-4 py-1.5 rounded-[8px]">
+                        View Details
+                      </button>
                     </div>
-
-                    <div className="p-6 flex flex-col gap-4 justify-between flex-grow">
-                      <p className="text-sm text-white/80 line-clamp-4">
-                        {p.description}
+                    <div className="border rounded-sm px-5 p-1 flex justify-around items-center text-sm h-[41px] text-zinc-400">
+                      <p className="flex items-center gap-2">
+                        <BedDouble size={16} /> <span>2 Bedrooms</span>
                       </p>
-                      <div className="flex flex-row flex-wrap gap-5 text-sm mt-2 text-white/90">
-                        <div className="flex items-center gap-2">
-                          <MapPin size={16} className="text-amber-400" />
-                          <span>{p.location}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Building size={16} className="text-amber-400" />
-                          <span>{p.propertyType?.name || "Apartment"}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          🏗️ <span>Year Built: {p.yearBuilt || "N/A"}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          📐 <span>Size: {p.propertySize} sqft</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <CircleDollarSign
-                            size={16}
-                            className="text-amber-400"
-                          />
-                          <span>
-                            {p.offerPrice && p.offerPrice !== p.price ? (
-                              <>
-                                <span className="line-through opacity-60 mr-2">
-                                  {formatCurrency(p.price)}
-                                </span>
-                                <span className="text-green-400 font-bold">
-                                  {formatCurrency(p.offerPrice)}
-                                </span>
-                              </>
-                            ) : (
-                              <span className="font-medium">
-                                {formatCurrency(p.price)}
-                              </span>
-                            )}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Logo or CTA */}
-                    <div className="mt-auto self-end m-5">
-                      <Link
-                        to={`/properties/${p._id}`}
-                        className="group rounded-full p-2 bg-white/10 hover:bg-white/20 hover:scale-105 ring-1 ring-white/10 transition duration-300"
-                      >
-                        <ArrowRight
-                          size={24}
-                          className="text-white transition-transform duration-300 group-hover:translate-x-1"
-                        />
-                      </Link>
+                      <div className="w-px h-10 border-l mx-2" />
+                      <p className="flex items-center gap-2">
+                        <Bath size={16} /> <span>1 Bath</span>
+                      </p>
+                      <div className="w-px h-10 border-l mx-2" />
+                      <p>1000 sqft</p>
                     </div>
                   </div>
                 </div>
-              );
-            })}
-          </div>
-          <div className="flex justify-center items-center mt-10">
-            <button
-              onClick={() => navigate("/properties")}
-              className="px-8 py-3 rounded-full bg-[#0E1C41] text-[#F6BC6D] border border-[#F6BC6D] font-semibold tracking-wide text-sm hover:bg-[#F6BC6D] hover:text-white hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          {/* Navigation buttons outside the card container */}
+          <div className="flex justify-between items-center mt-8">
+            {/* <button
+              ref={prevRef}
+              className="swiper-button-prev flex items-center justify-center w-12 h-12 bg-white shadow rounded-full hover:bg-[#092b80] hover:text-white transition"
             >
-              View All Properties
-            </button>
+              <ArrowLeft size={24} />
+            </button> */}
+
+            {/* Pagination dots */}
+            <div className="custom-pagination flex justify-center gap-2" />
+
+            {/* <button
+              ref={nextRef}
+              className="swiper-button-next flex items-center justify-center w-12 h-12 bg-white shadow rounded-full hover:bg-[#092b80] hover:text-white transition"
+            >
+              <ArrowRight size={24} />
+            </button> */}
           </div>
-        </>
+        </div>
       )}
     </section>
   );
