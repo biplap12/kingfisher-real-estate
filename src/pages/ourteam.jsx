@@ -71,7 +71,7 @@ import { FaInstagram } from "react-icons/fa";
 import { MdOutlineArrowOutward, MdOutlineCoronavirus } from "react-icons/md";
 import { TbTrekking } from "react-icons/tb";
 
-const LawFirmCard = () => {
+const OurTeam = () => {
   return (
     <div
       className="relative h-[600px] w-full max-w-5xl mx-auto mt-20 rounded-3xl overflow-hidden border border-white/20 bg-no-repeat bg-center bg-contain flex items-center justify-center px-6"
@@ -132,4 +132,4 @@ const LawFirmCard = () => {
   );
 };
 
-export default LawFirmCard;
+export default OurTeam;
