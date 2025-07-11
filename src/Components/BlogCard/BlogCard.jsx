@@ -17,11 +17,7 @@ const BlogCard = ({ post }) => {
       onClick={handleReadArticle}
       role="button"
     >
-<<<<<<< HEAD
-      <div className="flex flex-col h-full bg-white rounded-xl overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-gray-100/50 border border-zinc-200">
-=======
       <div className="flex flex-col h-full  rounded-xl overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-gray-100/50 border border-[#F5BC6D] bg-[#15003f]">
->>>>>>> origin/dev_biplap
         {/* Image Section */}
         <div className="relative overflow-hidden aspect-[4/3]">
           <img
@@ -34,11 +30,7 @@ const BlogCard = ({ post }) => {
 
           {/* Floating Read Time */}
           {post.readTime && (
-<<<<<<< HEAD
-            <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs font-medium text-gray-700 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-=======
             <div className="absolute top-4 right-4  backdrop-blur-sm px-3 py-1.5 rounded-full text-xs font-medium text-white group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
->>>>>>> origin/dev_biplap
               <div className="flex items-center gap-1.5">
                 <Clock className="w-3 h-3" />
                 {post.readTime}
@@ -55,11 +47,7 @@ const BlogCard = ({ post }) => {
               {(post.tags || []).slice(0, 3).map((tag, idx) => (
                 <span
                   key={idx}
-<<<<<<< HEAD
-                  className="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full border border-gray-100"
-=======
                   className="px-3 py-1 bg-g[#f6bc6d] text-white text-xs font-medium rounded-full border border-gray-200"
->>>>>>> origin/dev_biplap
                 >
                   {tag || "Tag"}
                 </span>
@@ -67,11 +55,7 @@ const BlogCard = ({ post }) => {
             </div>
 
             {/* Title */}
-<<<<<<< HEAD
-            <h3 className="text-xl font-semibold text-gray-900 mb-3 leading-tight group-hover:text-gray-700 transition-colors duration-200 line-clamp-1">
-=======
             <h3 className="text-xl font-semibold text-white mb-3 leading-tight group-hover:text-white transition-colors duration-200 line-clamp-1">
->>>>>>> origin/dev_biplap
               {post.title}
             </h3>
 
@@ -97,11 +81,7 @@ const BlogCard = ({ post }) => {
 
             <Link
               to={`/blog/${post._id}`}
-<<<<<<< HEAD
-              className="flex items-center gap-1.5 text-sm font-medium text-gray-900 group-hover:text-gray-600 transition-colors duration-200"
-=======
               className="flex items-center gap-1.5 text-sm font-medium text-white group-hover:text-gray-600 transition-colors duration-200"
->>>>>>> origin/dev_biplap
             >
               <span>Read</span>
               <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

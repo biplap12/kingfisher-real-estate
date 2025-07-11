@@ -31,11 +31,7 @@ export default function PropertyView() {
   if (!property) return <div className="text-center py-20">Property not found</div>;
 
   return (
-<<<<<<< HEAD
-    <div className="bg-white min-h-screen">      
-=======
     <div className="bg-[#0E1C41] min-h-screen">      
->>>>>>> origin/dev_biplap
        <Property_Gallary />
       </div>   
   );

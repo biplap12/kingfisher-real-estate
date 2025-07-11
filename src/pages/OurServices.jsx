@@ -1,4 +1,4 @@
-import React, { useState,  useRef } from "react";
+import React, { useState, useRef } from "react";
 import {
   Home,
   Search,
@@ -17,11 +17,7 @@ import Breadcrumbs from "../Components/Breadcrumbs/Breadcrumbs";
 
 const OurServices = () => {
   const bannerRef = useRef(null);
-<<<<<<< HEAD
-  const [hoveredCard, setHoveredCard] = useState(null);
-=======
-  const [ setHoveredCard] = useState(null);
->>>>>>> origin/dev_biplap
+  const [setHoveredCard] = useState(null);
 
   const services = [
     {
@@ -69,11 +65,7 @@ const OurServices = () => {
   ];
 
   return (
-<<<<<<< HEAD
-    <div className="min-h-screen bg-white">
-=======
     <div className="min-h-screen ">
->>>>>>> origin/dev_biplap
       {/* Hero Banner */}
       <div
         className="relative w-full mx-auto h-screen bg-cover bg-center text-white -mt-25 darkSection"
@@ -109,11 +101,7 @@ const OurServices = () => {
             {services.map((service) => (
               <div
                 key={service.id}
-<<<<<<< HEAD
-                className="group relative bg-white rounded-3xl p-8 transition-all duration-500 border border-gray-100 overflow-hidden"
-=======
                 className="group relative  border border-[#F5BC6D] rounded-3xl p-8 transition-all duration-500 overflow-hidden"
->>>>>>> origin/dev_biplap
                 onMouseEnter={() => setHoveredCard(service.id)}
                 onMouseLeave={() => setHoveredCard(null)}
               >
@@ -133,11 +121,7 @@ const OurServices = () => {
 
                   {/* Title */}
                   <div className="flex items-center justify-center lg:justify-start">
-<<<<<<< HEAD
-                    <h3 className="text-2xl font-semibold text-slate-800 mb-4 group-hover:text-slate-900 transition-colors ">
-=======
                     <h3 className="text-2xl font-semibold text-white mb-4 group-hover:text-slate-900 transition-colors ">
->>>>>>> origin/dev_biplap
                       {service.title}
                     </h3>
                   </div>

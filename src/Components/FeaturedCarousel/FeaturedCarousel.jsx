@@ -50,11 +50,7 @@ const FeaturedCarousel = ({ posts = [] }) => {
         </span>
       </div>
 
-<<<<<<< HEAD
-      <div className="bg-gradient-to-br from-slate-100 to-gray-100 rounded-3xl overflow-hidden shadow-sm border border-gray-100/50 mb-16">
-=======
       <div className="rounded-3xl overflow-hidden shadow-sm border border-gray-100/50 mb-16">
->>>>>>> origin/dev_biplap
         <div className="overflow-hidden relative min-h-[500px]">
           <div
             className="flex transition-transform duration-500 ease-in-out"
@@ -63,19 +59,11 @@ const FeaturedCarousel = ({ posts = [] }) => {
             {featuredPosts.map((post, index) => (
               <div
                 key={post.id || index}
-<<<<<<< HEAD
-                className="w-full flex-shrink-0 grid lg:grid-cols-2 min-h-[500px]"
-              >
-                {/* Left */}
-                <div className="flex flex-col justify-center p-8 lg:p-16 space-y-8">
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-900 leading-tight line-clamp-1">
-=======
                 className="w-full flex-shrink-0 grid lg:grid-cols-2 min-h-[500px] bg-["
               >
                 {/* Left */}
                 <div className="flex flex-col justify-center p-8 lg:p-16 space-y-8">
                   <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-white leading-tight line-clamp-1">
->>>>>>> origin/dev_biplap
                     {post.title}
                   </h2>
 
@@ -117,11 +105,7 @@ const FeaturedCarousel = ({ posts = [] }) => {
                     </div>
 
                     <button
-<<<<<<< HEAD
-                      className="group cursor-pointer inline-flex items-center space-x-2 bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition duration-300 font-medium"
-=======
                       className="group cursor-pointer inline-flex items-center space-x-2 bg-[#e6b16d] text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition duration-300 font-medium"
->>>>>>> origin/dev_biplap
                       onClick={() => navigate(`/blog/${post.id}`)}
                     >
                       <span>Read Article</span>

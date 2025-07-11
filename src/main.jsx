@@ -9,20 +9,12 @@ import { BannerHeightProvider } from "./Context/BannerHeightContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-<<<<<<< HEAD
-    <MenuProvider>
-=======
     {/* <MenuProvider> */}
->>>>>>> origin/dev_biplap
       <BannerHeightProvider>
       <RouterProvider router={router}>
         <App />
       </RouterProvider>
       </BannerHeightProvider>
-<<<<<<< HEAD
-    </MenuProvider>
-=======
     {/* </MenuProvider> */}
->>>>>>> origin/dev_biplap
   </StrictMode>
 );

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React, { useContext, useEffect, useRef, useState } from "react";
-=======
 import React, { useEffect, useRef, useState } from "react";
->>>>>>> origin/dev_biplap
 import PropertyCard from "../Components/Property-card/PropertyCard";
 import { MenuContext } from "../state/MenuContext";
 import Breadcrumbs from "../Components/Breadcrumbs/Breadcrumbs";
@@ -11,11 +7,7 @@ import api from "../services/api";
 
 const AllPropertypage = () => {
   const bannerRef = useRef(null);
-<<<<<<< HEAD
-  const { setMenuColor } = useContext(MenuContext);
-=======
   // const { setMenuColor } = useContext(MenuContext);
->>>>>>> origin/dev_biplap
   const { setBannerHeight } = useBannerHeight();
 
   const [loading, setLoading] = useState(true);
@@ -27,23 +19,6 @@ const AllPropertypage = () => {
     }
   }, []);
 
-<<<<<<< HEAD
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      if (bannerRef.current && scrollY > bannerRef.current.offsetHeight - 80) {
-        setMenuColor("dark");
-      } else {
-        setMenuColor("light");
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [setMenuColor]);
-=======
   // useEffect(() => {
   //   const handleScroll = () => {
   //     const scrollY = window.scrollY;
@@ -59,7 +34,6 @@ const AllPropertypage = () => {
 
   //   return () => window.removeEventListener("scroll", handleScroll);
   // }, [setMenuColor]);
->>>>>>> origin/dev_biplap
 
   useEffect(() => {
     const fetchData = async () => {

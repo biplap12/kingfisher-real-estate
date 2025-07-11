@@ -7,10 +7,6 @@ export default defineConfig({
   plugins: [react(),
     tailwindcss()
   ],
-<<<<<<< HEAD
-  base:'/',
-=======
->>>>>>> origin/dev_biplap
   server: {
     host: true, 
   },

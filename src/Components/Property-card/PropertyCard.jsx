@@ -53,11 +53,7 @@ const PropertyCard = ({ data }) => {
   };
 
   return (
-<<<<<<< HEAD
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
-=======
     <div className="min-h-screen">
->>>>>>> origin/dev_biplap
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
@@ -81,11 +77,7 @@ const PropertyCard = ({ data }) => {
             return (
               <div
                 key={property.id || globalIndex}
-<<<<<<< HEAD
-                className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 group"
-=======
                 className=" rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border  group"
->>>>>>> origin/dev_biplap
               >
                 {/* Image Gallery */}
                 <div className="p-6 pb-4">
@@ -102,24 +94,14 @@ const PropertyCard = ({ data }) => {
                 <div className="px-6 pb-6">
                   {/* Title and Price */}
                   <div className="mb-6">
-<<<<<<< HEAD
-                    <h2 className="text-xl lg:text-2xl font-bold  text-gray-900 mb-2 group-hover:text-gray-700 transition-colors">
-=======
                     <h2 className="text-xl lg:text-2xl font-bold  text-white mb-2 group-hover:text-white-700 transition-colors">
->>>>>>> origin/dev_biplap
                       {property.name}
                     </h2>
                     <div className="flex items-center justify-between">
                       <p className="text-xl lg:text-2xl font-bold text-green-600 paragraph-font tracking-wide">
-<<<<<<< HEAD
-                        {property.price}
-                      </p>
-                      <div className="flex items-center text-gray-500">
-=======
                        $ {property.price}
                       </p>
                       <div className="flex items-center text-white">
->>>>>>> origin/dev_biplap
                         <MapPin size={16} className="mr-1" />
                         <span className="text-sm">{property.location}</span>
                       </div>
@@ -128,65 +110,34 @@ const PropertyCard = ({ data }) => {
 
                   {/* Property Features */}
                   <div className="grid grid-cols-2 gap-3 mb-6">
-<<<<<<< HEAD
-                    <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl">
-                      <div className="p-2 bg-blue-100 rounded-lg">
-                        <Home size={16} className="text-blue-600" />
-=======
                     <div className="flex items-center space-x-3 p-3 border rounded-xl">
                       <div className="p-2 bg-[#fff4ab] rounded-lg">
                         <Home size={16} className="text-blue-800" />
->>>>>>> origin/dev_biplap
                       </div>
                       <div>
                         <p className="text-xs text-gray-500 uppercase font-bold">
                           Type
                         </p>
-<<<<<<< HEAD
-                        <p className="font-medium text-gray-900 ">
-=======
                         <p className="font-medium ">
->>>>>>> origin/dev_biplap
                           {property.propertyType.name}
                         </p>
                       </div>
                     </div>
 
-<<<<<<< HEAD
-                    <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl">
-                      <div className="p-2 bg-pink-100 rounded-lg">
-=======
                     <div className="flex items-center space-x-3 p-3 border rounded-xl">
                       <div className="p-2 bg-[#fff4ab] rounded-lg">
->>>>>>> origin/dev_biplap
                         <BedDouble size={16} className="text-pink-600" />
                       </div>
                       <div>
                         <p className="text-xs text-gray-500 uppercase tracking-wide font-bold">
                           Bedrooms
                         </p>
-<<<<<<< HEAD
-                        <p className="font-medium text-gray-900 paragraph-font tracking-wide">
-                          {property.Beds}
-=======
                         <p className="font-medium text-white paragraph-font tracking-wide">
                           {property.Beds || 0}
->>>>>>> origin/dev_biplap
                         </p>
                       </div>
                     </div>
 
-<<<<<<< HEAD
-                    <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl">
-                      <div className="p-2 bg-purple-100 rounded-lg">
-                        <UserCog2 size={16} className="text-purple-600" />
-                      </div>
-                      <div>
-                        <p className="text-xs text-gray-500 uppercase tracking-wide font-bold">
-                          Developer
-                        </p>
-                        <p className="font-medium text-gray-900 paragraph-font tracking-wide">
-=======
                     <div className="flex items-center space-x-3 p-3 border rounded-xl">
                       <div className="p-2 bg-[#fff4ab] rounded-lg">
                         <UserCog2 size={16} className="text-purple-600" />
@@ -196,51 +147,31 @@ const PropertyCard = ({ data }) => {
                           Developer
                         </p>
                         <p className="font-medium text-white paragraph-font tracking-wide">
->>>>>>> origin/dev_biplap
                           {property.developer}
                         </p>
                       </div>
                     </div>
-<<<<<<< HEAD
-                    <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl capitalize">
-                      <div
-                        className={`p-2 rounded-lg ${
-                          property.Status === "Available"
-=======
                     <div className="flex items-center space-x-3 p-3 border rounded-xl capitalize">
                       <div
                         className={`p-2 rounded-lg ${
                           property.Status === "available"
->>>>>>> origin/dev_biplap
                             ? "bg-green-100"
                             : "bg-red-100"
                         }`}
                       >
-<<<<<<< HEAD
-                        {property.Status === "Available" ? (
-=======
                         {property.Status === "available" ? (
->>>>>>> origin/dev_biplap
                           <Check size={16} className="text-green-600" />
                         ) : (
                           <X size={16} className="text-red-600" />
                         )}
                       </div>
                       <div>
-<<<<<<< HEAD
-                        <p className="text-xs text-gray-500 uppercase tracking-wide font-bold">
-=======
                         <p className="text-xs text-white uppercase tracking-wide font-bold">
->>>>>>> origin/dev_biplap
                           Status
                         </p>
                         <p
                           className={`font-medium paragraph-font tracking-wide  ${
-<<<<<<< HEAD
-                            property.Status === "Available"
-=======
                             property.Status === "available"
->>>>>>> origin/dev_biplap
                               ? "text-green-600"
                               : "text-red-600"
                           }`}
