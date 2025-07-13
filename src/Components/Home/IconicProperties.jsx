@@ -559,7 +559,7 @@ const IconicProperties = () => {
   }, []);
 
   return (
-    <section className="py-20 px-6 max-w-screen-xl mx-auto">
+    <section className="p-20 w-full mx-auto">
       <h2 className="text-4xl md:text-7xl font-bold text-center mb-20 heading-font">
         Iconic Properties
       </h2>
@@ -601,14 +601,14 @@ const IconicProperties = () => {
             {properties.map((p, idx) => (
               <SwiperSlide key={p._id ?? idx}>
                 <div
-                  className="group rounded-xl overflow-hidden transition hover:shadow-lg bg-white"
-                  style={{ height: "500px" }}
+                  className="group rounded-xl overflow-hidden transition hover:shadow-lg bg-white overflow-hidden"
+                  style={{ height: "520px" }}
                 >
                   <div className="relative">
                     <img
                       src={p.mainImage}
                       alt={p.name}
-                      className="w-full h-[380px] object-cover"
+                      className="w-full h-[400px] object-cover"
                       onError={(e) => {
                         e.currentTarget.src =
                           "https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?auto=format&fit=crop&w=1170&q=80";

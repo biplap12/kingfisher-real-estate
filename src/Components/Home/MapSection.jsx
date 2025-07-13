@@ -44,7 +44,7 @@ const MapSection = () => {
           {locations.map((item, i) => (
             <div
               key={i}
-              className="flex items-start sm:items-center gap-4 sm:gap-6 p-4 sm:p-6 rounded-2xl  bg-[#0E1C41]  border border-[#F6BC6D] hover:bg-[#FE9A00] hover:shadow-sm transition-all duration-500"
+              className="flex items-start sm:items-center gap-4 sm:gap-6 p-4 sm:p-6 rounded-2xl  bg-[#0a1c4e]  border border-[#15008f]  transition-all duration-500"
             >
               <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-amber-100 to-amber-50 rounded-full flex items-center justify-center transition-all duration-300">
                 <div className="text-amber-700">{item.icon}</div>

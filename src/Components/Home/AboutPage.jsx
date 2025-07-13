@@ -460,7 +460,6 @@
 // };
 
 // export default AboutPage;
-
 import React from "react";
 import { Users, Home, ArrowRight } from "lucide-react";
 import CountUp from "react-countup";
@@ -481,8 +480,19 @@ const fadeUp = {
 
 const AboutPage = () => {
   return (
-    <section className="max-h-screen text-white py-16 px-4 md:px-16">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-stretch gap-14">
+    <section className="relative text-white py-16 md:px-20">
+      {/* Mandala Decoration - Top Center */}
+      <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 opacity-30">
+        <img
+          src="/mandala/mandalaImage.png"
+          alt="Mandala decoration"
+          className="w-full h-full object-contain"
+        />
+      </div>
+      {/* Top Blend Gradient */}
+      <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-[#0E1C41] to-transparent z-0" />
+
+      <div className="w-full mx-auto flex flex-col md:flex-row items-stretch gap-14 relative z-10">
         {/* Left Section */}
         <motion.div
           initial="hidden"
@@ -490,15 +500,14 @@ const AboutPage = () => {
           viewport={{ once: true }}
           variants={fadeUp}
           custom={0}
-          className="md:w-1/2 relative"
+          className="md:w-1/2 relative mt-5 bg-white/5 p-12 rounded-xl backdrop-blur-sm border border-[#a96200]"
         >
           <img
             src="/gallery/bg.jpg"
             alt="About Background"
-            className="w-full h-full object-cover rounded-2xl shadow-xl"
+            className="w-full h-full object-cover rounded-xl "
           />
-
-          <div className="absolute top-5 left-5 flex items-center gap-4 bg-white/80 backdrop-blur-md rounded-xl p-2.5 shadow-lg">
+          <div className="absolute top-15 left-14 flex items-center gap-4 bg-white/80 backdrop-blur-md rounded-xl p-2.5 shadow-lg">
             <span className="p-2 bg-[#f8daaf] rounded-full">
               <Users className="text-primary w-5 h-5" />
             </span>
@@ -525,7 +534,7 @@ const AboutPage = () => {
           <motion.h2
             variants={fadeUp}
             custom={2}
-            className="text-3xl md:text-5xl font-extrabold leading-snug text-white heading-font"
+            className="text-4xl md:text-6xl font-extrabold leading-snug text-white heading-font"
           >
             About Us
           </motion.h2>
@@ -533,7 +542,7 @@ const AboutPage = () => {
           <motion.p
             variants={fadeUp}
             custom={3}
-            className="text-gray-300 leading-relaxed"
+            className="text-gray-300 text-2xl leading-relaxed"
           >
             Pellentesque egestas elementum egestas faucibus sem. Velit nunc
             egestas ut morbi. Leo diam diam nibh eget fermentum massa pretium.
@@ -595,9 +604,9 @@ const AboutPage = () => {
           <motion.div
             variants={fadeUp}
             custom={6}
-            className="hidden md:flex flex-wrap md:flex-nowrap justify-start items-center mt-9 gap-8"
+            className="hidden md:flex w-full flex-wrap md:flex-nowrap justify-between items-center mt-9 gap-8"
           >
-            <div className="flex flex-col justify-center items-center text-center">
+            <div className="flex flex-col justify-center items-center text-center gap-5">
               <Home className="text-[#F6BC6D] w-10 h-10 mb-2" />
               <p className="text-sm uppercase text-gray-400">Properties Sold</p>
               <h3 className="text-3xl font-bold text-white">

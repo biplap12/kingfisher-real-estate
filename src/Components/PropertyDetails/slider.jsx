@@ -56,61 +56,76 @@ const Slider = () => {
   };
 
   return (
-    <div
-      className="relative w-full h-screen bg-transparent overflow-hidden flex items-center justify-center group select-none"
-      onPointerDown={handlePointerDown}
-      onPointerMove={handlePointerMove}
-      onPointerUp={handlePointerUp}
-    >
-      <div className="relative flex items-center justify-center w-full max-w-[1400px] h-[90%]">
-        {slides.map((slide, index) => {
-          const isPrev =
-            index === (currentSlide - 1 + slides.length) % slides.length;
-          const isNext = index === (currentSlide + 1) % slides.length;
+    <div className="relative w-full mt-5">
+      <h1 className="text-4xl md:text-6xl font-bold text-white text-center heading-font">
+        Our Project
+      </h1>
+      <div
+        className="relative w-full h-screen bg-transparent overflow-hidden flex items-center justify-center group select-none"
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+      >
+        <div className="relative flex items-center justify-center w-full max-w-[1400px] h-[60%]">
+          {slides.map((slide, index) => {
+            const isPrev =
+              index === (currentSlide - 1 + slides.length) % slides.length;
+            const isNext = index === (currentSlide + 1) % slides.length;
 
-          return (
-            <div
-              key={index}
-              onClick={() => {
-                if (isPrev || isNext) setCurrentSlide(index);
-              }}
-              className={`absolute transition-all duration-700 ease-in-out transform w-[70%] md:w-[60%] h-full rounded-xl overflow-hidden ${getSlideClass(
-                index
-              )}`}
-              style={{
-                left:
-                  index === currentSlide
-                    ? "50%"
-                    : isPrev
-                    ? "15%"
-                    : isNext
-                    ? "85%"
-                    : "50%",
-                transform:
-                  index === currentSlide
-                    ? "translateX(-50%) scale(1)"
-                    : isPrev || isNext
-                    ? "translateX(-50%) scale(0.9)"
-                    : "translateX(-50%) scale(0.75)",
-                transition: "all 0.7s ease-in-out",
-                opacity:
-                  index === currentSlide ? 1 : isPrev || isNext ? 0.6 : 0,
-                cursor: isPrev || isNext ? "grab" : "default",
-              }}
-            >
-              <img
-                src={slide.image}
-                alt={slide.title}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-            </div>
-          );
-        })}
-      </div>
+            return (
+              <div
+                key={index}
+                onClick={() => {
+                  if (isPrev || isNext) setCurrentSlide(index);
+                }}
+                className={`absolute transition-all duration-700 ease-in-out transform w-[70%] md:w-[60%] h-[100%] rounded-xl overflow-hidden ${getSlideClass(
+                  index
+                )}`}
+                style={{
+                  left:
+                    index === currentSlide
+                      ? "50%"
+                      : isPrev
+                      ? "15%"
+                      : isNext
+                      ? "85%"
+                      : "50%",
+                  transform:
+                    index === currentSlide
+                      ? "translateX(-50%) scale(1)"
+                      : isPrev || isNext
+                      ? "translateX(-50%) scale(0.9)"
+                      : "translateX(-50%) scale(0.75)",
+                  transition: "all 0.7s ease-in-out",
+                  opacity:
+                    index === currentSlide ? 1 : isPrev || isNext ? 0.6 : 0,
+                  cursor: isPrev || isNext ? "grab" : "default",
+                }}
+              >
+                <img
+                  src={slide.image}
+                  alt={slide.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
+                  <div className="relative z-10">
+                    <h3 className="text-2xl md:text-3xl font-bold mb-2">
+                      {slide.title}
+                    </h3>
+                    <p className="text-sm md:text-base opacity-90 max-w-[80%]">
+                      {slide.description}
+                    </p>
+                  </div>
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+              </div>
+            );
+          })}
+        </div>
 
-      {/* Navigation Buttons */}
-      {/* <button
+        {/* Navigation Buttons */}
+        {/* <button
         onClick={prevSlide}
         className="absolute left-6 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 transition-all duration-300 opacity-0 group-hover:opacity-100 z-50"
       >
@@ -123,8 +138,8 @@ const Slider = () => {
         <ChevronRight className="h-6 w-6 text-white" />
       </button> */}
 
-      {/* Play / Pause */}
-      <button
+        {/* Play / Pause */}
+        {/* <button
         onClick={() => setIsAutoPlaying((prev) => !prev)}
         className="absolute top-4 right-6 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-2 transition-all duration-300 opacity-0 group-hover:opacity-100 z-50"
       >
@@ -133,7 +148,8 @@ const Slider = () => {
         ) : (
           <Play className="h-4 w-4 text-white" />
         )}
-      </button>
+      </button> */}
+      </div>
     </div>
   );
 };

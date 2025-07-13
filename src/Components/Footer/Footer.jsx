@@ -24,7 +24,7 @@ const Footer = () => {
         </div>
 
         {/* Main Footer Content */}
-        <div className="relative z-10 max-w-full md:max-w-7xl mx-auto px-6 py-7">
+        <div className="relative z-10 max-w-full  mx-auto px-22 py-7">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 ">
             {/* Logo & Tagline */}
             <div className="flex flex-col items-center md:items-start text-center md:text-left ">

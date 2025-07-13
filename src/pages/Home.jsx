@@ -3,7 +3,7 @@ import MapSection from "../Components/Home/MapSection.jsx";
 import FloorPlanSelector from "../Components/Home/FloorPlanSelector.jsx";
 import IconicProperties from "../Components/Home/IconicProperties.jsx";
 import Whykingfisher from "../Components/Home/WhyKingFisher.jsx";
-// import GallerySlider from "../Components/PropertyDetails/slider.jsx";
+import GallerySlider from "../Components/PropertyDetails/slider.jsx";
 // import Hero1 from "../Components/Home/BackgroundImageSection.jsx";
 // import Gallery from "../Components/Home/Gallery.jsx";
 import PartnerLogos from "../Components/Partners/Associated-Partners.jsx";
@@ -28,7 +28,8 @@ const Home = () => {
       </section>
       <section className="min-h-screen" id="our-story">
         <AboutPage />
-        <OurProject />
+        {/* <OurProject /> */}
+        <GallerySlider />
       </section>
       {/* <section>
         <Gallery />
