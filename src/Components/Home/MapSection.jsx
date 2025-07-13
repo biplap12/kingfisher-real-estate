@@ -36,15 +36,14 @@ const MapSection = () => {
           </h2>
         </div>
       </div>
-
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 items-start">
+      <div className="w-full sm:mx-0  lg:mx-12  grid grid-cols-1 lg:grid-cols-5 ">
         {/* Location List with padding */}
         <div className="lg:col-span-2 px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20 space-y-6 sm:space-y-8 h-fit my-auto">
           {locations.map((item, i) => (
             <div
               key={i}
-              className="flex items-start sm:items-center gap-4 sm:gap-6 p-4 sm:p-6 rounded-2xl  bg-[#0a1c4e]  border border-[#15008f]  transition-all duration-500"
+              className="flex items-start sm:items-center gap-4 sm:gap-6 p-4 sm:p-6 rounded-2xl  bg-[#0E1C41]  border border-[#F6BC6D] hover:bg-[#FE9A00] hover:shadow-sm transition-all duration-500"
             >
               <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-amber-100 to-amber-50 rounded-full flex items-center justify-center transition-all duration-300">
                 <div className="text-amber-700">{item.icon}</div>
@@ -62,7 +61,7 @@ const MapSection = () => {
         </div>
 
         {/* Map without padding */}
-        <div className="lg:col-span-3  px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20 space-y-6 sm:space-y-8 h-fit my-auto">
+        <div className="lg:col-span-3 mx-0 lg:mx-24   px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20 space-y-6 sm:space-y-8 h-fit my-auto">
           <div className="w-full h-full rounded-2xl mt-5 overflow-hidden">
             <DubaiMapSection />
           </div>

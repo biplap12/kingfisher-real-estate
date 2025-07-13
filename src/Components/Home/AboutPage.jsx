@@ -460,6 +460,186 @@
 // };
 
 // export default AboutPage;
+// import React from "react";
+// import { Users, Home, ArrowRight } from "lucide-react";
+// import CountUp from "react-countup";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import "swiper/css";
+// import "swiper/css/autoplay";
+// import { Autoplay } from "swiper/modules";
+// import { motion } from "framer-motion";
+
+// const fadeUp = {
+//   hidden: { opacity: 0, y: 40 },
+//   visible: (i) => ({
+//     opacity: 1,
+//     y: 0,
+//     transition: { delay: i * 0.2, duration: 0.6, ease: "easeOut" },
+//   }),
+// };
+
+// const AboutPage = () => {
+//   return (
+//     <section className="relative text-white py-16 px-4 md:px-16">
+//       {/* Mandala Decoration - Top Center */}
+//       <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 opacity-30">
+//         <img
+//           src="/mandala/mandalaImage.png"
+//           alt="Mandala decoration"
+//           className="w-full h-full object-contain"
+//         />
+//       </div>
+//       {/* Top Blend Gradient */}
+//       <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-[#0E1C41] to-transparent z-0" />
+
+//       <div className="w-full mx-auto flex flex-col md:flex-row items-stretch gap-14 relative z-10">
+//         {/* Left Section */}
+//         <motion.div
+//           initial="hidden"
+//           whileInView="visible"
+//           viewport={{ once: true }}
+//           variants={fadeUp}
+//           custom={0}
+//           className="md:w-1/2 relative mt-5"
+//         >
+//           <img
+//             src="/gallery/bg.jpg"
+//             alt="About Background"
+//             className="w-full h-full object-cover rounded-2xl"
+//           />
+//           <div className="absolute top-5 left-5 flex items-center gap-4 bg-white/80 backdrop-blur-md rounded-xl p-2.5 shadow-lg">
+//             <span className="p-2 bg-[#f8daaf] rounded-full">
+//               <Users className="text-primary w-5 h-5" />
+//             </span>
+//             <div>
+//               <p className="text-xs uppercase tracking-wide text-gray-700">
+//                 Total Clients
+//               </p>
+//               <h4 className="text-lg font-bold text-gray-800">
+//                 <CountUp end={7000} duration={3} /> M+
+//               </h4>
+//             </div>
+//           </div>
+//         </motion.div>
+
+//         {/* Right Section */}
+//         <motion.div
+//           initial="hidden"
+//           whileInView="visible"
+//           viewport={{ once: true }}
+//           variants={fadeUp}
+//           custom={1}
+//           className="md:w-1/2 space-y-4 px-2 md:px-6 flex flex-col justify-center"
+//         >
+//           <motion.h2
+//             variants={fadeUp}
+//             custom={2}
+//             className="text-4xl md:text-6xl font-extrabold leading-snug text-white heading-font"
+//           >
+//             About Us
+//           </motion.h2>
+
+//           <motion.p
+//             variants={fadeUp}
+//             custom={3}
+//             className="text-gray-300 text-2xl leading-relaxed"
+//           >
+//             Pellentesque egestas elementum egestas faucibus sem. Velit nunc
+//             egestas ut morbi. Leo diam diam nibh eget fermentum massa pretium.
+//             Mi mauris nulla ac dictum ut mauris non. Lorem ipsum, dolor sit amet
+//             consectetur adipisicing elit. Veritatis distinctio qui cum quia
+//             similique tenetur aliquam culpa dolore dolor placeat sapiente,
+//             laboriosam molestias quos magni. Odit alias velit suscipit
+//             doloribus!
+//           </motion.p>
+
+//           <motion.button
+//             variants={fadeUp}
+//             custom={4}
+//             className="mt-2 inline-flex items-center w-fit gap-2 px-4 py-2.5 bg-[#F6BC6D] text-[#0B1736] font-semibold rounded-xl hover:bg-[#f5aa47] transition-all shadow-md"
+//           >
+//             Learn More
+//             <ArrowRight className="w-5 h-5" />
+//           </motion.button>
+
+//           {/* Stats Swiper (Mobile) */}
+//           <motion.div
+//             variants={fadeUp}
+//             custom={5}
+//             className="mt-6 block md:hidden"
+//           >
+//             <Swiper
+//               spaceBetween={20}
+//               slidesPerView={1.2}
+//               autoplay={{
+//                 delay: 3000,
+//                 disableOnInteraction: false,
+//               }}
+//               loop={true}
+//               modules={[Autoplay]}
+//             >
+//               {[
+//                 { icon: <Home />, label: "Properties Sold", value: 1200 },
+//                 { icon: <Users />, label: "Happy Clients", value: 9800 },
+//                 { icon: <Users />, label: "Agents Worldwide", value: 350 },
+//               ].map((item, i) => (
+//                 <SwiperSlide key={i}>
+//                   <div className="flex flex-col justify-center items-center text-center bg-white/10 p-6 rounded-xl shadow">
+//                     <div className="text-[#F6BC6D] w-10 h-10 mb-2">
+//                       {item.icon}
+//                     </div>
+//                     <p className="text-sm uppercase text-gray-400">
+//                       {item.label}
+//                     </p>
+//                     <h3 className="text-3xl font-bold text-white">
+//                       <CountUp end={item.value} duration={3} />+
+//                     </h3>
+//                   </div>
+//                 </SwiperSlide>
+//               ))}
+//             </Swiper>
+//           </motion.div>
+
+//           {/* Static Cards (Desktop) */}
+//           <motion.div
+//             variants={fadeUp}
+//             custom={6}
+//             className="hidden md:flex w-full flex-wrap md:flex-nowrap justify-between items-center mt-9 gap-8"
+//           >
+//             <div className="flex flex-col justify-center items-center text-center">
+//               <Home className="text-[#F6BC6D] w-10 h-10 mb-2" />
+//               <p className="text-sm uppercase text-gray-400">Properties Sold</p>
+//               <h3 className="text-3xl font-bold text-white">
+//                 <CountUp end={1200} duration={3} />+
+//               </h3>
+//             </div>
+
+//             <div className="flex flex-col justify-center items-center text-center">
+//               <Users className="text-[#F6BC6D] w-10 h-10 mb-2" />
+//               <p className="text-sm uppercase text-gray-400">Happy Clients</p>
+//               <h3 className="text-3xl font-bold text-white">
+//                 <CountUp end={9800} duration={3} />+
+//               </h3>
+//             </div>
+
+//             <div className="flex flex-col justify-center items-center text-center">
+//               <Users className="text-[#F6BC6D] w-10 h-10 mb-2" />
+//               <p className="text-sm uppercase text-gray-400">
+//                 Agents Worldwide
+//               </p>
+//               <h3 className="text-3xl font-bold text-white">
+//                 <CountUp end={350} duration={3} />+
+//               </h3>
+//             </div>
+//           </motion.div>
+//         </motion.div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default AboutPage;
+
 import React from "react";
 import { Users, Home, ArrowRight } from "lucide-react";
 import CountUp from "react-countup";
@@ -469,18 +649,28 @@ import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
 import { motion } from "framer-motion";
 
-const fadeUp = {
+// Animation variants
+const fadeFromTop = {
+  hidden: { opacity: 0, y: -40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+};
+
+const fadeFromBottom = {
   hidden: { opacity: 0, y: 40 },
   visible: (i) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.2, duration: 0.6, ease: "easeOut" },
+    transition: { delay: i * 0.2, duration: 0.8, ease: "easeOut" },
   }),
 };
 
 const AboutPage = () => {
   return (
-    <section className="relative text-white py-16 md:px-20">
+    <section className="relative text-white py-16 px-4 md:px-16">
       {/* Mandala Decoration - Top Center */}
       <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 opacity-30">
         <img
@@ -493,56 +683,61 @@ const AboutPage = () => {
       <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-[#0E1C41] to-transparent z-0" />
 
       <div className="w-full mx-auto flex flex-col md:flex-row items-stretch gap-14 relative z-10">
-        {/* Left Section */}
+        {/* Left Section - Fades from top */}
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
-          custom={0}
-          className="md:w-1/2 relative mt-5 bg-white/5 p-12 rounded-xl backdrop-blur-sm border border-[#a96200]"
+          viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+          variants={fadeFromTop}
+          className="md:w-1/2 relative mt-5"
         >
-          <img
-            src="/gallery/bg.jpg"
-            alt="About Background"
-            className="w-full h-full object-cover rounded-xl "
-          />
-          <div className="absolute top-15 left-14 flex items-center gap-4 bg-white/80 backdrop-blur-md rounded-xl p-2.5 shadow-lg">
-            <span className="p-2 bg-[#f8daaf] rounded-full">
-              <Users className="text-primary w-5 h-5" />
-            </span>
-            <div>
-              <p className="text-xs uppercase tracking-wide text-gray-700">
-                Total Clients
-              </p>
-              <h4 className="text-lg font-bold text-gray-800">
-                <CountUp end={7000} duration={3} /> M+
-              </h4>
+          <motion.div
+            className="w-full h-full"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+          >
+            <img
+              src="/gallery/bg.jpg"
+              alt="About Background"
+              className="w-full h-full object-cover rounded-2xl shadow-xl"
+            />
+            <div className="absolute top-5 left-5 flex items-center gap-4 bg-white/80 backdrop-blur-md rounded-xl p-2.5 shadow-lg">
+              <span className="p-2 bg-[#f8daaf] rounded-full">
+                <Users className="text-primary w-5 h-5" />
+              </span>
+              <div>
+                <p className="text-xs uppercase tracking-wide text-gray-700">
+                  Total Clients
+                </p>
+                <h4 className="text-lg font-bold text-gray-800">
+                  <CountUp end={7000} duration={3} /> M+
+                </h4>
+              </div>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
 
-        {/* Right Section */}
+        {/* Right Section - Fades from bottom */}
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
-          custom={1}
+          viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+          variants={fadeFromBottom}
+          custom={0}
           className="md:w-1/2 space-y-4 px-2 md:px-6 flex flex-col justify-center"
         >
           <motion.h2
-            variants={fadeUp}
-            custom={2}
+            variants={fadeFromBottom}
+            custom={1}
             className="text-4xl md:text-6xl font-extrabold leading-snug text-white heading-font"
           >
             About Us
           </motion.h2>
 
           <motion.p
-            variants={fadeUp}
-            custom={3}
-            className="text-gray-300 text-2xl leading-relaxed"
+            variants={fadeFromBottom}
+            custom={2}
+            className="text-gray-300 text-xl md:text-2xl leading-relaxed"
           >
             Pellentesque egestas elementum egestas faucibus sem. Velit nunc
             egestas ut morbi. Leo diam diam nibh eget fermentum massa pretium.
@@ -554,8 +749,10 @@ const AboutPage = () => {
           </motion.p>
 
           <motion.button
-            variants={fadeUp}
-            custom={4}
+            variants={fadeFromBottom}
+            custom={3}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             className="mt-2 inline-flex items-center w-fit gap-2 px-4 py-2.5 bg-[#F6BC6D] text-[#0B1736] font-semibold rounded-xl hover:bg-[#f5aa47] transition-all shadow-md"
           >
             Learn More
@@ -564,8 +761,8 @@ const AboutPage = () => {
 
           {/* Stats Swiper (Mobile) */}
           <motion.div
-            variants={fadeUp}
-            custom={5}
+            variants={fadeFromBottom}
+            custom={4}
             className="mt-6 block md:hidden"
           >
             <Swiper
@@ -584,7 +781,10 @@ const AboutPage = () => {
                 { icon: <Users />, label: "Agents Worldwide", value: 350 },
               ].map((item, i) => (
                 <SwiperSlide key={i}>
-                  <div className="flex flex-col justify-center items-center text-center bg-white/10 p-6 rounded-xl shadow">
+                  <motion.div
+                    whileHover={{ y: -5 }}
+                    className="flex flex-col justify-center items-center text-center bg-white/10 p-6 rounded-xl shadow"
+                  >
                     <div className="text-[#F6BC6D] w-10 h-10 mb-2">
                       {item.icon}
                     </div>
@@ -594,7 +794,7 @@ const AboutPage = () => {
                     <h3 className="text-3xl font-bold text-white">
                       <CountUp end={item.value} duration={3} />+
                     </h3>
-                  </div>
+                  </motion.div>
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -602,35 +802,29 @@ const AboutPage = () => {
 
           {/* Static Cards (Desktop) */}
           <motion.div
-            variants={fadeUp}
-            custom={6}
+            variants={fadeFromBottom}
+            custom={5}
             className="hidden md:flex w-full flex-wrap md:flex-nowrap justify-between items-center mt-9 gap-8"
           >
-            <div className="flex flex-col justify-center items-center text-center gap-5">
-              <Home className="text-[#F6BC6D] w-10 h-10 mb-2" />
-              <p className="text-sm uppercase text-gray-400">Properties Sold</p>
-              <h3 className="text-3xl font-bold text-white">
-                <CountUp end={1200} duration={3} />+
-              </h3>
-            </div>
-
-            <div className="flex flex-col justify-center items-center text-center">
-              <Users className="text-[#F6BC6D] w-10 h-10 mb-2" />
-              <p className="text-sm uppercase text-gray-400">Happy Clients</p>
-              <h3 className="text-3xl font-bold text-white">
-                <CountUp end={9800} duration={3} />+
-              </h3>
-            </div>
-
-            <div className="flex flex-col justify-center items-center text-center">
-              <Users className="text-[#F6BC6D] w-10 h-10 mb-2" />
-              <p className="text-sm uppercase text-gray-400">
-                Agents Worldwide
-              </p>
-              <h3 className="text-3xl font-bold text-white">
-                <CountUp end={350} duration={3} />+
-              </h3>
-            </div>
+            {[
+              { icon: <Home />, label: "Properties Sold", value: 1200 },
+              { icon: <Users />, label: "Happy Clients", value: 9800 },
+              { icon: <Users />, label: "Agents Worldwide", value: 350 },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                custom={i}
+                variants={fadeFromBottom}
+                whileHover={{ y: -5 }}
+                className="flex flex-col justify-center items-center text-center"
+              >
+                <div className="text-[#F6BC6D] w-10 h-10 mb-2">{item.icon}</div>
+                <p className="text-sm uppercase text-gray-400">{item.label}</p>
+                <h3 className="text-3xl font-bold text-white">
+                  <CountUp end={item.value} duration={3} />+
+                </h3>
+              </motion.div>
+            ))}
           </motion.div>
         </motion.div>
       </div>

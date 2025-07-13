@@ -79,7 +79,7 @@ const PartnerLogos = () => {
         amenities to provide an exceptional standard of living.
       </p>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 w-full max-w-6xl">
+      <div className="flex flex-wrap justify-center items-center gap-8 sm:mx-2 lg:mx-15 ">
         {logos.map((src, index) => (
           <div
             key={index}

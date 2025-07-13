@@ -30,8 +30,8 @@ const stats = [
 
 const Whykingfisher = () => {
   return (
-    <section className=" px-4" id="why-us">
-      <div className="w-full px-16 mx-auto text-center text-[#F5BC6D]">
+    <section className="sm:p-0 lg:px-4" id="why-us">
+      <div className="w-full px-5 lg:px-16 mx-auto text-center text-[#F5BC6D]">
         <h2 className="text-4xl md:text-5xl font-semibold tracking-widest uppercase mb-6">
           WHY CHOOSE KINGFISHER ?
         </h2>

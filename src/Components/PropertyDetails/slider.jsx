@@ -66,7 +66,7 @@ const Slider = () => {
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
       >
-        <div className="relative flex items-center justify-center w-full max-w-[1400px] h-[60%]">
+        <div className="relative flex items-center justify-center w-full  max-w-[1400px] h-[60%] mx-auto">
           {slides.map((slide, index) => {
             const isPrev =
               index === (currentSlide - 1 + slides.length) % slides.length;
@@ -109,16 +109,16 @@ const Slider = () => {
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
-                  <div className="relative z-10">
-                    <h3 className="text-2xl md:text-3xl font-bold mb-2">
+                  <div className="relative z-10 w-full flex flex-col justify-center items-center">
+                    <h3 className="text-2xl text-center md:text-3xl font-bold mb-2 heading-font ">
                       {slide.title}
                     </h3>
-                    <p className="text-sm md:text-base opacity-90 max-w-[80%]">
+                    <p className="text-sm w-full  text-center md:text-base opacity-90 max-w-[80%]">
                       {slide.description}
                     </p>
                   </div>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                <div className="absolute inset-0  bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
               </div>
             );
           })}

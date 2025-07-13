@@ -559,7 +559,7 @@ const IconicProperties = () => {
   }, []);
 
   return (
-    <section className="p-20 w-full mx-auto">
+    <section className="p-4 lg:p-20 w-full mx-auto">
       <h2 className="text-4xl md:text-7xl font-bold text-center mb-20 heading-font">
         Iconic Properties
       </h2>
