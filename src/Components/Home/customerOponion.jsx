@@ -4,30 +4,16 @@ const testimonials = [
   {
     name: "Manavi Paudel",
     date: "1st July, 2024",
-    text: "My first visit to R.B. Diamond Jewellers was 8 years ago in 2009. The quality of their jewelry is exceptional, and their hospitality makes every visit memorable. Their expertise in diamond selection helped me find the perfect engagement ring for my partner.My first visit to R.B. Diamond Jewellers was 8 years ago in 2009. The quality of their jewelry is exceptional, and their hospitality makes every visit memorable. Their expertise in diamond selection helped me find the perfect engagement ring for my partner.My first visit to R.B. Diamond Jewellers was 8 years ago in 2009. The quality of their jewelry is exceptional, and their hospitality makes every visit memorable. Their expertise in diamond selection helped me find the perfect engagement ring for my partner.My first visit to R.B. Diamond Jewellers was 8 years ago in 2009. The quality of their jewelry is exceptional, and their hospitality makes every visit memorable. Their expertise in diamond selection helped me find the perfect engagement ring for my partner.My first visit to R.B. Diamond Jewellers was 8 years ago in 2009. The quality of their jewelry is exceptional, and their hospitality makes every visit memorable. Their expertise in diamond selection helped me find the perfect engagement ring for my partner.My first visit to R.B. Diamond Jewellers was 8 years ago in 2009. The quality of their jewelry is exceptional, and their hospitality makes every visit memorable. Their expertise in diamond selection helped me find the perfect engagement ring for my partner.",
+    text: "KingFisher is a true gem in the jewelry industry. Their commitment to quality, hospitality, and expert craftsmanship makes them a true gem in the jewelry industry. A truly trustworthy establishment.",
     keywords: ["Quality", "Hospitality", "Expertise"],
     avatars: "https://randomuser.me/api/portraits/women/65.jpg",
   },
   {
     name: "Hari Maya Paudel",
     date: "15th June, 2024",
-    text: "I've been a loyal customer for over 5 years. The craftsmanship of their pieces is remarkable, and the staff always goes above and beyond to ensure customer satisfaction. Their collection of traditional jewelry is simply breathtaking.",
+    text: "KingFisher's collection of property is truly exceptional. Their attention to detail and commitment to quality make them a true gem in the real estate industry. A truly trustworthy establishment.",
     keywords: ["Craftsmanship", "Customer Service", "Collection"],
     avatars: "https://randomuser.me/api/portraits/women/44.jpg",
-  },
-  {
-    name: "Sudresh Paudel",
-    date: "28th May, 2024",
-    text: "The personalized service at R.B. Diamond Jewellers is unmatched. They took the time to understand exactly what I was looking for and created a custom necklace that exceeded all my expectations. The attention to detail is phenomenal.",
-    keywords: ["Personalized", "Custom Design", "Attention to Detail"],
-    avatars: "https://randomuser.me/api/portraits/women/22.jpg",
-  },
-  {
-    name: "Sijan Paudel",
-    date: "10th April, 2024",
-    text: "From engagement rings to anniversary gifts, R.B. Diamond has been our family jeweler for generations. Their timeless designs and ethical sourcing practices make them stand out in the industry. A truly trustworthy establishment.",
-    keywords: ["Timeless", "Ethical", "Trustworthy"],
-    avatars: "https://randomuser.me/api/portraits/women/23.jpg",
   },
 ];
 

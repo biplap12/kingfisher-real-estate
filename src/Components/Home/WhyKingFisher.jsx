@@ -35,7 +35,7 @@ const stats = [
 const Whykingfisher = () => {
   return (
     <section
-      className="relative py-20 px-5 lg:px-16 bg-[#0A1430] overflow-hidden"
+      className="relative py-20 px-5 lg:px-16 overflow-hidden"
       id="why-us"
     >
       {/* Floating decorative elements */}
@@ -46,11 +46,11 @@ const Whykingfisher = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-block relative">
-            <h2 className="text-4xl md:text-5xl font-bold uppercase text-[#F5BC6D] mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold uppercase text-[#F5BC6D] mb-4 heading-font">
               WHY KINGFISHER?
             </h2>
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-[#F5BC6D]"></div>
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-white/50 -mb-1"></div>
+            {/* <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-[#F5BC6D]"></div>
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-white/50 -mb-1"></div> */}
           </div>
           <p className="text-lg text-white/80 max-w-3xl mx-auto mt-8">
             Kingfisher Real Estate is known for delivering landmark projects
@@ -123,11 +123,6 @@ const Whykingfisher = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Decorative Bottom Element */}
-        <div className="mt-16 flex justify-center">
-          <div className="w-32 h-1 bg-gradient-to-r from-transparent via-[#F5BC6D] to-transparent"></div>
         </div>
       </div>
     </section>

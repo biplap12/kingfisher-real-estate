@@ -601,7 +601,7 @@ const IconicProperties = () => {
             {properties.map((p, idx) => (
               <SwiperSlide key={p._id ?? idx}>
                 <div
-                  className="group rounded-xl overflow-hidden transition hover:shadow-lg bg-white overflow-hidden"
+                  className="group rounded-xl transition hover:shadow-lg bg-white overflow-hidden"
                   style={{ height: "520px" }}
                 >
                   <div className="relative">
@@ -620,7 +620,7 @@ const IconicProperties = () => {
                       <h3 className="text-xl font-semibold text-white">
                         $ 500,000
                       </h3>
-                      <button className="text-sm bg-white text-[#092b80] px-4 py-1.5 rounded-[8px]">
+                      <button className="text-sm bg-[#F6BC6D] cursor-pointer text-[#092b80] px-4 py-1.5 rounded-[8px]">
                         View Details
                       </button>
                     </div>
