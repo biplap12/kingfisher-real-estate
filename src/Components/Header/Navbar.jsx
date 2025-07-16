@@ -7,7 +7,8 @@ import { useBannerHeight } from "../../Context/BannerHeightContext.jsx";
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 800);
-  const [menuColor, setMenuColornp] = useState("light");
+  const [menuColor, setMenuColor] = useState("light");
+  const [showNavbar, setShowNavbar] = useState(true);
 
   const { bannerHeight } = useBannerHeight();
 
@@ -21,22 +22,6 @@ export default function Sidebar() {
     };
   }, [isOpen]);
 
-  // useEffect(() => {
-  //   // const handleScroll = () => {
-  //   //   const scrollY = window.scrollY;
-  //   //   if (scrollY > bannerHeight - 80) {
-  //   //     setMenuColor("light");
-  //   //   } else {
-  //   //     setMenuColor("light");
-  //   //   }
-  //   // };
-
-  //   window.addEventListener("scroll", handleScroll);
-  //   handleScroll();
-
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, [bannerHeight]);
-
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 800);
@@ -48,8 +33,34 @@ export default function Sidebar() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        setShowNavbar(false); // Scroll down: hide
+      } else {
+        setShowNavbar(true); // Scroll up: show
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="fixed top-0 left-0 w-full z-[999999] transition duration-300 bg-[#0E1C41] border-b border-[#F6BC6D] shadow">
+    <div
+      className={`fixed top-0 left-0 w-full z-[999999] transition-transform duration-300 bg-[#0E1C41] border-b border-[#F6BC6D] shadow transform ${
+        showNavbar ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       <div className="flex items-center justify-between px-20 py-5 transition-all duration-300">
         {/* Hamburger Menu */}
         <div className="flex items-center gap-8">
