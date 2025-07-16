@@ -19,12 +19,11 @@ const Footer = () => {
           <img
             src="./footer/BuildFooter.png"
             alt=" Footer Background"
-            className="w-full h-full object-cover opacity-10"
+            className="w-full h-full object-cover brightness-75"
           />
         </div>
-
         {/* Main Footer Content */}
-        <div className="relative z-10 max-w-full md:max-w-7xl mx-auto px-6 py-7">
+        <div className="relative z-10 max-w-full  mx-auto px-22 py-7">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 ">
             {/* Logo & Tagline */}
             <div className="flex flex-col items-center md:items-start text-center md:text-left ">
@@ -112,7 +111,7 @@ const Footer = () => {
           </div>
 
           {/* Divider */}
-          <div className="border-t border-white border-opacity-30 mb-8"></div>
+          <div className="border-t border-[#F5BC6D] border-opacity-30 mb-8"></div>
 
           {/* Bottom Info */}
           <div className="flex flex-col md:flex-row lg:flex-row justify-between items-center gap-4 text-sm ">

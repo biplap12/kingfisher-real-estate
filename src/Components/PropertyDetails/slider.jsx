@@ -1,141 +1,115 @@
-import { useEffect, useRef, useState } from "react";
-import slides from "../../data/hero";
-import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
+import { useRef, useLayoutEffect, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const Slider = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+gsap.registerPlugin(ScrollTrigger);
 
-  const touchStartX = useRef(null);
-  const touchEndX = useRef(null);
+const images = [
+  {
+    img: "/gallery/img1.jpg",
+    title: "Exclusive Listings",
+    description: "This is the description for slide 1.",
+  },
+  {
+    img: "/gallery/img2.jpg",
+    title: "Sold Listings",
+    description: "This is the description for slide 2.",
+  },
+  {
+    img: "/gallery/img3.jpg",
+    title: "Exclusive Listings",
+    description: "This is the description for slide 3.",
+  },
+  {
+    img: "/gallery/img4.jpg",
+    title: "Sold Listings",
+    description: "This is the description for slide 4.",
+  },
+];
 
-  // Auto-play
-  useEffect(() => {
-    if (!isAutoPlaying || slides.length === 0) return;
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 10000);
-    return () => clearInterval(timer);
-  }, [isAutoPlaying]);
+export default function HorizontalSlider() {
+  const trackRef = useRef(null);
+  const containerRef = useRef(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
+  useLayoutEffect(() => {
+    if (!isLoaded) return;
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
+    const ctx = gsap.context(() => {
+      const slides = trackRef.current.children;
+      const totalWidth = Array.from(slides).reduce(
+        (acc, slide) => acc + slide.offsetWidth,
+        0
+      );
 
-  // Detect swipe
-  const handlePointerDown = (e) => {
-    touchStartX.current = e.clientX;
-  };
+      const scrollLength = totalWidth - window.innerWidth;
 
-  const handlePointerMove = (e) => {
-    touchEndX.current = e.clientX;
-  };
+      gsap.to(trackRef.current, {
+        x: () => `-${scrollLength}`,
+        ease: "none",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: () => `+=${scrollLength}`,
+          scrub: true,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        },
+      });
 
-  const handlePointerUp = () => {
-    if (touchStartX.current !== null && touchEndX.current !== null) {
-      const distance = touchStartX.current - touchEndX.current;
-      if (distance > 50) nextSlide();
-      else if (distance < -50) prevSlide();
+      // Refresh ScrollTrigger after images load
+      ScrollTrigger.refresh();
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, [isLoaded]);
+
+  // Handle image loading
+  const handleImageLoad = () => {
+    if (trackRef.current) {
+      const images = trackRef.current.querySelectorAll("img");
+      const loaded = Array.from(images).every((img) => img.complete);
+      if (loaded) setIsLoaded(true);
     }
-    touchStartX.current = null;
-    touchEndX.current = null;
-  };
-
-  const getSlideClass = (index) => {
-    if (index === currentSlide) return "z-30 scale-100 opacity-100";
-    if (
-      index === (currentSlide - 1 + slides.length) % slides.length ||
-      index === (currentSlide + 1) % slides.length
-    )
-      return "z-20 scale-90 opacity-60 cursor-grab";
-    return "hidden md:block z-10 scale-75 opacity-0";
   };
 
   return (
-    <div
-      className="relative w-full h-screen bg-transparent overflow-hidden flex items-center justify-center group select-none"
-      onPointerDown={handlePointerDown}
-      onPointerMove={handlePointerMove}
-      onPointerUp={handlePointerUp}
-    >
-      <div className="relative flex items-center justify-center w-full max-w-[1400px] h-[90%]">
-        {slides.map((slide, index) => {
-          const isPrev =
-            index === (currentSlide - 1 + slides.length) % slides.length;
-          const isNext = index === (currentSlide + 1) % slides.length;
+    <div className="w-full">
+      {/* Horizontal Scroll Section */}
+      <section
+        ref={containerRef}
+        className="relative w-full h-screen overflow-hidden "
+      >
+        <h2 className="text-white text-center text-6xl heading-font font-bold absolute top-0 left-0 right-0 z-10">
+          Property Details
+        </h2>
 
-          return (
+        <div ref={trackRef} className="flex w-max h-screen">
+          {images.map((item, index) => (
             <div
-              key={index}
-              onClick={() => {
-                if (isPrev || isNext) setCurrentSlide(index);
-              }}
-              className={`absolute transition-all duration-700 ease-in-out transform w-[70%] md:w-[60%] h-full rounded-xl overflow-hidden ${getSlideClass(
-                index
-              )}`}
-              style={{
-                left:
-                  index === currentSlide
-                    ? "50%"
-                    : isPrev
-                    ? "15%"
-                    : isNext
-                    ? "85%"
-                    : "50%",
-                transform:
-                  index === currentSlide
-                    ? "translateX(-50%) scale(1)"
-                    : isPrev || isNext
-                    ? "translateX(-50%) scale(0.9)"
-                    : "translateX(-50%) scale(0.75)",
-                transition: "all 0.7s ease-in-out",
-                opacity:
-                  index === currentSlide ? 1 : isPrev || isNext ? 0.6 : 0,
-                cursor: isPrev || isNext ? "grab" : "default",
-              }}
+              key={`slide-${index}`}
+              className="w-screen h-[90vh] mt-20 flex-shrink-0 relative"
             >
               <img
-                src={slide.image}
-                alt={slide.title}
+                src={item.img}
+                alt={item.title}
                 className="w-full h-full object-cover"
+                onLoad={handleImageLoad}
+                onError={handleImageLoad}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+              <div className="absolute bottom-20 left-[50%] bg-black/50 text-white p-4  rounded-lg">
+                <h3 className="text-6xl heading-font font-semibold">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-amber-500 text-xl">
+                  {item.description}
+                </p>
+              </div>
             </div>
-          );
-        })}
-      </div>
-
-      {/* Navigation Buttons */}
-      {/* <button
-        onClick={prevSlide}
-        className="absolute left-6 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 transition-all duration-300 opacity-0 group-hover:opacity-100 z-50"
-      >
-        <ChevronLeft className="h-6 w-6 text-white" />
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute right-6 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 transition-all duration-300 opacity-0 group-hover:opacity-100 z-50"
-      >
-        <ChevronRight className="h-6 w-6 text-white" />
-      </button> */}
-
-      {/* Play / Pause */}
-      <button
-        onClick={() => setIsAutoPlaying((prev) => !prev)}
-        className="absolute top-4 right-6 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-2 transition-all duration-300 opacity-0 group-hover:opacity-100 z-50"
-      >
-        {isAutoPlaying ? (
-          <Pause className="h-4 w-4 text-white" />
-        ) : (
-          <Play className="h-4 w-4 text-white" />
-        )}
-      </button>
+          ))}
+        </div>
+      </section>
     </div>
   );
-};
-
-export default Slider;
+}

@@ -209,17 +209,20 @@
 // };
 
 // export default HeroSection;
-
-"use client";
 import {
   CircleArrowRight,
   Mouse,
   Building2,
   Coins,
   TrendingUp,
+  Home,
+  Wrench,
+  Award,
+  Globe,
 } from "lucide-react";
 import React from "react";
 import { motion } from "framer-motion";
+import CountUp from "react-countup";
 
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
@@ -237,9 +240,11 @@ const HeroSection = () => {
       >
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A1430] via-[#0A1430]/80 to-[#0A1430] transition-all duration-1000" />
       </div>
+      {/* Bottom Blend Gradient */}
+      <div className="absolute bottom-0 left-0 right-0 h-60 bg-gradient-to-t from-[#0E1C41] to-transparent z-0" />
 
       {/* Main Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 text-center md:text-left">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 text-center mt-20">
         {/* Heading */}
         <motion.div
           className="w-full max-w-screen-xl"
@@ -247,43 +252,40 @@ const HeroSection = () => {
           animate="animate"
           variants={fadeUp}
         >
-          <h1 className="text-4xl md:text-6xl font-light leading-tight max-w-4xl mx-auto md:mx-0">
-            We integrate <br />
-            <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-300">
-              Real economy
+          <h1 className="text-4xl md:text-6xl font-light leading-tight mx-auto md:mx-0">
+            We integrate Real economy <br />
+            <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-white to-[#F6BC6D]">
+              into the{" "}
             </span>{" "}
-            into the{" "}
-            <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
+            <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#F6BC6D] to-[#F6BC6D]/40">
               Digital one
             </span>
           </h1>
         </motion.div>
-
-        {/* Feature List */}
         <motion.div
-          className="w-full max-w-screen-xl mt-10"
+          className="w-full  mt-10"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 1 }}
         >
-          <div className="flex flex-wrap gap-8 justify-start">
+          <div className="flex flex-wrap gap-8 justify-center">
             {[
               {
-                text: "Become a co-owner of real estate on blockchain",
-                icon: <Building2 className="w-10 h-10 text-cyan-300" />,
+                text: "Become a owner of real estate",
+                icon: <Building2 className="w-10 h-10 text-[#F6BC6D]" />,
               },
               {
                 text: "Receive up to 40% of annual profit",
-                icon: <Coins className="w-10 h-10 text-cyan-300" />,
+                icon: <Coins className="w-10 h-10 text-[#F6BC6D]" />,
               },
               {
-                text: "Get 7x profit on token’s growth",
-                icon: <TrendingUp className="w-10 h-10 text-cyan-300" />,
+                text: "Get 7x profit on token's growth",
+                icon: <TrendingUp className="w-10 h-10 text-[#F6BC6D]" />,
               },
             ].map((item, idx) => (
               <motion.div
                 key={idx}
-                className="flex items-start gap-4 w-[260px] bg-white/5 p-4 rounded-xl shadow-sm backdrop-blur-md"
+                className="flex items-start gap-4 w-[280px] bg-white/5 p-8 rounded-xl shadow-sm backdrop-blur-md"
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 + idx * 0.2, duration: 0.6 }}
@@ -295,34 +297,67 @@ const HeroSection = () => {
           </div>
         </motion.div>
 
-        {/* CTA Buttons */}
+        {/* Improved Scroll Indicator */}
         <motion.div
-          className="mt-14 w-full max-w-screen-xl flex flex-col md:flex-row items-center justify-between gap-10 px-4"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.8 }}
-        >
-          <div className="flex gap-4">
-            <button className="bg-[#1b58ff] hover:bg-blue-300 text-white hover:text-black font-semibold px-6 py-3 rounded-full flex items-center gap-3 transition-all shadow-lg">
-              Buy Tokens <CircleArrowRight size={18} />
-            </button>
-            <button className="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-full flex items-center gap-3 backdrop-blur-md transition-all border ">
-              White Paper{" "}
-              <span className="text-white rotate-90">
-                <CircleArrowRight size={18} />
-              </span>
-            </button>
-          </div>
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce flex items-center justify-center w-8 h-10 border-2 border-white rounded-full bg-white/10 backdrop-blur-md shadow-xl"
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center justify-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.6 }}
         >
-          <Mouse className="text-white" size={16} />
+          <div className="relative">
+            {/* Mouse outline */}
+            <div className="w-6 h-10 border-2 border-[#F6BC6D] rounded-full flex items-start justify-center pt-2">
+              {/* Scroll wheel */}
+              <motion.div
+                className="w-1 h-2 bg-[#F6BC6D] rounded-full"
+                animate={{
+                  y: [0, 6, 0],
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+            </div>
+            {/* Animated arrow */}
+            <motion.div
+              className="absolute -bottom-6 left-1/2 transform -translate-x-1/2"
+              animate={{
+                y: [0, 5, 0],
+              }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#F6BC6D"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M12 5v14M19 12l-7 7-7-7" />
+              </svg>
+            </motion.div>
+          </div>
+          <motion.p
+            className="mt-10 text-sm text-[#F6BC6D]"
+            animate={{
+              opacity: [0.6, 1, 0.6],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+            }}
+          >
+            Scroll down
+          </motion.p>
         </motion.div>
       </div>
     </div>

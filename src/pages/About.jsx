@@ -81,7 +81,7 @@ export default function About() {
               living. Nestled along the marina, this exceptional development
               offers a seamless blend of tranquility, energy, and
               connectivity—where every feature is thoughtfully designed to
-              elevate modern lifestyles.
+              elevate modern lifestyles. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla repellat aperiam enim temporibus id. 
             </p>
           </div>
 

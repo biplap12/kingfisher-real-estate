@@ -56,7 +56,7 @@ export default function Sidebar() {
           : "bg-transparent"
       }`}
     >
-      <div className="flex items-center justify-between px-6 py-5 transition-all duration-300">
+      <div className="flex items-center justify-between px-20 py-5 transition-all duration-300">
         {/* Hamburger Menu */}
         <div className="flex items-center gap-8">
           <div
@@ -108,7 +108,7 @@ export default function Sidebar() {
         >
           <span
             className={`font-medium ${
-              menuColor === "light" ? "text-white" : "text-[#232266]"
+              menuColor === "light" ? "text-[#F6BC6D]" : "text-[#232266]"
             } hidden md:block`}
           >
             <Link to="tel:+91 9999999999"> +91 9999999999</Link>
@@ -118,7 +118,7 @@ export default function Sidebar() {
             to="/contact"
             className={`transition transform ease-in-out cursor-pointer ${
               menuColor === "light"
-                ? "bg-transparent lg:bg-white "
+                ? "bg-transparent lg:bg-[#F6BC6D] "
                 : "bg-transparent lg:bg-[#F5BC6D] text-white"
             } ${
               isMobile
