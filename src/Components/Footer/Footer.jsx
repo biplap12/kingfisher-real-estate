@@ -19,10 +19,9 @@ const Footer = () => {
           <img
             src="./footer/BuildFooter.png"
             alt=" Footer Background"
-            className="w-full h-full object-cover opacity-10"
+            className="w-full h-full object-cover opacity-10 backdrop-grayscale-75"
           />
         </div>
-
         {/* Main Footer Content */}
         <div className="relative z-10 max-w-full  mx-auto px-22 py-7">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 ">

@@ -36,7 +36,7 @@ const Home = () => {
       <section className="min-h-screen">
         <GallerySlider />
       </section>
-      <section>
+      <section className="mb-96">
         <Whykingfisher />
       </section>
       {/* <section>
