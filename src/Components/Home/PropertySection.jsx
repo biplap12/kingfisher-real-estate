@@ -75,7 +75,7 @@ const buttonVariants = {
 const PropertySection = () => {
   return (
     <motion.section
-      className="w-full px-4 md:px-20 py-12 min-h-screen mb-30"
+      className="w-full px-4 md:px-20 py-12 min-h-screen mb-48"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}

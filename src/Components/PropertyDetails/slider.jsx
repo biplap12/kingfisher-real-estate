@@ -225,110 +225,6 @@
 //     </section>
 //   );
 // }
-// import { useRef, useEffect } from "react";
-// import { gsap } from "gsap";
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-// gsap.registerPlugin(ScrollTrigger);
-
-// const images = [
-//   {
-//     img: "/gallery/img1.jpg",
-//     title: "Exclusive Listings",
-//     description: "This is the description for slide 1.",
-//   },
-//   {
-//     img: "/gallery/img2.jpg",
-//     title: "Sold Listings",
-//     description: "This is the description for slide 2.",
-//   },
-//   {
-//     img: "/gallery/img3.jpg",
-//     title: "Exclusive Listings",
-//     description: "This is the description for slide 3.",
-//   },
-//   {
-//     img: "/gallery/img4.jpg",
-//     title: "Sold Listings",
-//     description: "This is the description for slide 4.",
-//   },
-// ];
-
-// export default function HorizontalSlider() {
-//   const sectionRef = useRef(null);
-//   const slideRef = useRef(null);
-
-//   useEffect(() => {
-//     const section = sectionRef.current;
-//     const slide = slideRef.current;
-//     const slides = gsap.utils.toArray(slide.children);
-//     const numSlides = slides.length;
-
-//     // Reset previous ScrollTriggers if any
-//     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-
-//     gsap.set(slide, { xPercent: 0 });
-
-//     // Create timeline to animate slides in steps
-//     const tl = gsap.timeline({
-//       scrollTrigger: {
-//         trigger: section,
-//         start: "top top",
-//         end: `+=${numSlides * window.innerHeight}`,
-//         scrub: 1,
-//         pin: true,
-//         snap: {
-//           snapTo: 1 / (numSlides - 1),
-//           duration: 0.3,
-//           ease: "power1.inOut",
-//           markers: true,
-//         },
-//         anticipatePin: 1,
-//         invalidateOnRefresh: true,
-//       },
-//     });
-
-//     // Animate from 0% to -100% * (numSlides - 1)
-//     tl.to(slide, {
-//       yPercent: 0,
-//       xPercent: -100 * (numSlides - 1),
-//       ease: "none",
-//     });
-
-//     // Clean up on unmount
-//     return () => {
-//       tl.scrollTrigger?.kill();
-//       tl.kill();
-//     };
-//   }, []);
-
-//   return (
-//     <section
-//       ref={sectionRef}
-//       className="relative w-screen mt-28 overflow-hidden"
-//     >
-//       <div ref={slideRef} className="flex h-screen mt-20 gap-10">
-//         {images.map((src, index) => (
-//           <div
-//             key={index}
-//             className="w-screen h-screen flex-shrink-0 flex gap-10 relative "
-//           >
-//             <img
-//               src={src.img}
-//               alt={`slide-${index}`}
-//               className="w-full h-full object-cover border"
-//             />
-//             <div className="absolute bottom-15 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-//               <h2 className="text-2xl font-bold">{src.title}</h2>
-//               <p className="">{src.description}</p>
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-//     </section>
-//   );
-// }
-
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -356,11 +252,6 @@ const images = [
     title: "Sold Listings",
     description: "This is the description for slide 4.",
   },
-  {
-    img: "/gallery/img4.jpg",
-    title: "Sold Listings",
-    description: "This is the description for slide 5.",
-  },
 ];
 
 export default function HorizontalSlider() {
@@ -371,68 +262,65 @@ export default function HorizontalSlider() {
     const section = sectionRef.current;
     const slide = slideRef.current;
     const slides = gsap.utils.toArray(slide.children);
-    const numSlides = slides.length - 1;
+    const numSlides = slides.length;
 
-    // Reset previous ScrollTriggers if any
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    // Set width for horizontal scrolling
+    gsap.set(slide, { width: `${numSlides * 100}%` });
+    slides.forEach((slideEl) =>
+      gsap.set(slideEl, { width: `${100 / numSlides}%` })
+    );
 
-    gsap.set(slide, { xPercent: 0 });
+    // Kill any previous triggers
+    ScrollTrigger.getAll().forEach((t) => t.kill());
 
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: section,
         start: "top top",
-        end: `+=${numSlides * window.innerHeight - 100}`,
-        scrub: 1,
+        end: () => `+=${section.offsetWidth * (numSlides - 1)}`,
+        scrub: 5,
         pin: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
         snap: {
           snapTo: 1 / (numSlides - 1),
           duration: 0.3,
           ease: "power1.inOut",
         },
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
+        markers: true,
       },
     });
 
     tl.to(slide, {
       xPercent: -100 * (numSlides - 1),
       ease: "none",
-      duration: 1,
     });
 
     return () => {
-      tl.scrollTrigger?.kill();
       tl.kill();
+      ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, []);
 
   return (
     <section
       ref={sectionRef}
-      className="relative w-screen h-[100vh] overflow-hidden"
+      className="relative w-screen  overflow-hidden z-20"
     >
-      <div ref={slideRef} className="flex h-screen mt-20" role="list">
-        {images.map(({ img, title, description }, index) => (
+      <div ref={slideRef} className="flex h-full">
+        {images.map((src, index) => (
           <div
             key={index}
-            className="w-screen h-full flex-shrink-0 relative flex flex-col justify-end"
-            role="listitem"
+            className="relative h-screen flex items-center justify-center"
           >
             <img
-              src={img}
-              alt={`${title} - slide ${index + 1}`}
-              className="w-full h-full object-cover border border-gray-700"
-              loading="lazy"
-              draggable={false}
+              src={src.img}
+              alt={`slide-${index}`}
+              className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 p-4 rounded-md max-w-[90vw] sm:max-w-md text-center">
-              <h2 className="text-xl sm:text-3xl font-semibold text-white">
-                {title}
-              </h2>
-              <p className="mt-1 text-sm sm:text-base text-gray-200">
-                {description}
-              </p>
+            <div className="z-10 bg-black/50 p-6 rounded-lg text-white text-center">
+              <h2 className="text-3xl font-bold mb-2">{src.title}</h2>
+              <p className="text-lg">{src.description}</p>
             </div>
           </div>
         ))}
