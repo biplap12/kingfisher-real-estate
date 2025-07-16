@@ -49,13 +49,7 @@ export default function Sidebar() {
   }, []);
 
   return (
-    <div
-      className={`fixed top-0 left-0 w-full z-50 transition duration-300 ${
-        menuColor === "dark"
-          ? "bg-[#0E1C41] border-b border-[#F6BC6D] shadow"
-          : "bg-transparent"
-      }`}
-    >
+    <div className="fixed top-0 left-0 w-full z-[999999] transition duration-300 bg-[#0E1C41] border-b border-[#F6BC6D] shadow">
       <div className="flex items-center justify-between px-20 py-5 transition-all duration-300">
         {/* Hamburger Menu */}
         <div className="flex items-center gap-8">
