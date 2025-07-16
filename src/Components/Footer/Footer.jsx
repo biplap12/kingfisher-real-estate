@@ -19,7 +19,7 @@ const Footer = () => {
           <img
             src="./footer/BuildFooter.png"
             alt=" Footer Background"
-            className="w-full h-full object-cover opacity-10 backdrop-grayscale-75"
+            className="w-full h-full object-cover brightness-75"
           />
         </div>
         {/* Main Footer Content */}
@@ -111,7 +111,7 @@ const Footer = () => {
           </div>
 
           {/* Divider */}
-          <div className="border-t border-white border-opacity-30 mb-8"></div>
+          <div className="border-t border-[#F5BC6D] border-opacity-30 mb-8"></div>
 
           {/* Bottom Info */}
           <div className="flex flex-col md:flex-row lg:flex-row justify-between items-center gap-4 text-sm ">

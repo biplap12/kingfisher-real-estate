@@ -132,3 +132,27 @@ html {
 
 html { scroll-behavior: smooth; }
 section { scroll-behavior: smooth; }
+
+@keyframes marquee-track {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-track {
+  animation: marquee-track 30s linear infinite;
+}
+
+
+html, body {
+  overflow-x: hidden;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}

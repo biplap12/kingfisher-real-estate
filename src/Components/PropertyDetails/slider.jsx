@@ -98,9 +98,13 @@ export default function HorizontalSlider() {
                 onLoad={handleImageLoad}
                 onError={handleImageLoad}
               />
-              <div className="absolute bottom-20 left-1/2  text-white  rounded-lg">
-                <h3 className="text-6xl heading-font font-semibold">{item.title}</h3>
-                <p className="mt-2  text-base">{item.description}</p>
+              <div className="absolute bottom-20 left-[50%] bg-black/50 text-white p-4  rounded-lg">
+                <h3 className="text-6xl heading-font font-semibold">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-amber-500 text-xl">
+                  {item.description}
+                </p>
               </div>
             </div>
           ))}

@@ -5,20 +5,50 @@ import Navbar from "./Components/Header/Navbar.jsx";
 import Footer from "./Components/Footer/Footer.jsx";
 // import useThemeObserver from "./hook/useThemeObserver.js";
 import LayoutWrapper from "./pages/LayoutWrapper.jsx";
+import { useEffect, useState } from "react";
+import Preloader from "./Components/Preloader/Preloader.jsx";
 
 function App() {
   // useThemeObserver();
+  const [showPreloader, setShowPreloader] = useState(false);
 
+  useEffect(() => {
+    const hasVisited = sessionStorage.getItem("hasVisited");
+
+    if (!hasVisited) {
+      setShowPreloader(true);
+      const timer = setTimeout(() => {
+        sessionStorage.setItem("hasVisited", "true");
+        setShowPreloader(false);
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  if (showPreloader) {
+    return <Preloader />;
+  }
   return (
     <>
-      <LayoutWrapper>
-        <Navbar />
-        <main className="min-h-[78vh]">
-          <Outlet />
-        </main>
-        <Footer />
-      </LayoutWrapper>
-
+      {/* <Preloader /> */}
+      <div
+        className={`${
+          showPreloader ? "overflow-hidden h-screen " : "overflow-auto"
+        }`}
+      >
+        <LayoutWrapper>
+          <Navbar />
+          <main
+            className={`min-h-[78vh] scrollbar-hidden ${
+              showPreloader ? "scrollbar-hidden" : " scrollbar-hidden"
+            }`}
+          >
+            <Outlet />
+          </main>
+          <Footer />
+        </LayoutWrapper>
+      </div>
       {/* Global Toast Container */}
       <ToastContainer
         position="top-right"
