@@ -58,7 +58,7 @@ export default function ToggleSidebar({ onClose }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 bg-gradient-to-br from-black/80 to-black/80 backdrop-blur-md z-50"
+        className="fixed inset-0 bg-black backdrop-blur-md z-50 overflow-hidden h-screen"
         onClick={onClose}
       >
         <motion.div

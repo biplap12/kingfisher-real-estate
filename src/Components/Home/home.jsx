@@ -304,7 +304,7 @@ const HeroSection = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.6 }}
         >
-          <div className="relative">
+          <div className="hidden md:block relative">
             {/* Mouse outline */}
             <div className="w-6 h-10 border-2 border-[#F6BC6D] rounded-full flex items-start justify-center pt-2">
               {/* Scroll wheel */}
