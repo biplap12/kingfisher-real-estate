@@ -163,6 +163,7 @@ const DubaiMapSection = () => {
 
   return (
     <section>
+      <h2 className="text-3xl font-extrabold text-[#F6BC6D] text-center lg:text-6xl mb-10 heading-font">Map</h2>
       <div className="max-w-6xl mx-auto">
         <MapContainer
           center={[25.1972, 55.2744]}

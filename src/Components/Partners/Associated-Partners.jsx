@@ -109,7 +109,7 @@ const partners = [
 
 const PartnersMarquee = () => {
   return (
-    <div className="relative overflow-hidden w-full">
+    <div className="relative overflow-hidden w-full mb-10">
       <div className="flex justify-center items-center heading-font text-3xl md:text-6xl">
         <h2>Our Partners</h2>
       </div>

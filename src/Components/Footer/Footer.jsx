@@ -23,7 +23,7 @@ const Footer = () => {
           />
         </div>
         {/* Main Footer Content */}
-        <div className="relative z-10 max-w-full  mx-auto px-22 py-7">
+        <div className="relative z-10 max-w-full  mx-auto px-5 md:px-22  py-7">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 ">
             {/* Logo & Tagline */}
             <div className="flex flex-col items-center md:items-start text-center md:text-left ">
@@ -31,7 +31,7 @@ const Footer = () => {
                 <img
                   src="/logo/logo1.png"
                   alt="Company Logo"
-                  className="h-12 "
+                  className="h-8 md:h-12 w-auto"
                 />
               </div>
               <p className="text-white raleway-regular  text-base max-w-xs leading-relaxed">
