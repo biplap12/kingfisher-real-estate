@@ -93,17 +93,19 @@ export default function Sidebar() {
           </div>
 
           {/* Logo */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
-            <Link to="/" className="flex items-center opacity-100">
-              <img
-                src="/logo/logo1.png"
-                alt="logo"
-                className="h-8 md:h-12 object-contain"
-              />
-            </Link>
-          </div>
-
+          {!isOpen && (
+            <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
+              <Link to="/" className="flex items-center opacity-100">
+                <img
+                  src="/logo/logo1.png"
+                  alt="logo"
+                  className="h-8 md:h-12 object-contain"
+                />
+              </Link>
+            </div>
+          )}
           {/* Contact & Enquiry */}
+          {!isOpen && (        
           <div className="flex items-center gap-4 opacity-100">
             <span className="font-medium text-[#F6BC6D] hidden md:block">
               +1 (234) 567-8901
@@ -124,6 +126,7 @@ export default function Sidebar() {
               )}
             </Link>
           </div>
+            )}
         </div>
       </div>
       {/* Sidebar Panel */}
