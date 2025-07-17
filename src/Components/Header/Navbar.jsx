@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ToggleSidebar from "./ToggleSidebar.jsx";
+import ToggleSidebar from "./toggleSidebar.jsx";
 import { Link } from "react-router-dom";
 import { BiSolidMessageAltDetail } from "react-icons/bi";
 
