@@ -15,6 +15,7 @@ import AboutPage from "../Components/Home/AboutPage.jsx";
 import Testimonial from "../Components/Home/customerOponion.jsx";
 import OurProject from "../Components/Home/ourProject.jsx";
 import PropertySection from "../Components/Home/PropertySection.jsx";
+import HorizontalSlider from "../Components/Home/propertySlider.jsx";
 
 const Home = () => {
   return (
@@ -34,7 +35,7 @@ const Home = () => {
         <PropertySection />
       </section>
       <section className="min-h-screen">
-        <GallerySlider />
+        <HorizontalSlider />
       </section>
       <section>
         <Whykingfisher />

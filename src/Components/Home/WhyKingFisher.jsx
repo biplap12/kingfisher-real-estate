@@ -64,7 +64,7 @@ const Whykingfisher = () => {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="group relative h-96 rounded-2xl overflow-hidden border border-[#2f4677] hover:border-[#F5BC6D] transition-all duration-500"
+              className="group relative h-80 rounded-2xl overflow-hidden border border-[#2f4677] hover:border-[#F5BC6D] transition-all duration-500"
             >
               {/* Card Background */}
               <div className="absolute inset-0 bg-gradient-to-b from-[#0A1430] to-[#1B2A54] opacity-90"></div>
@@ -75,7 +75,7 @@ const Whykingfisher = () => {
               ></div>
 
               {/* Floating Icon Circle */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-[#0A1430] border-2 border-[#F5BC6D]/30 flex items-center justify-center transition-all duration-700 group-hover:scale-110 group-hover:border-[#F5BC6D]/60">
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-[#0A1430] border-2 border-[#F5BC6D]/30 flex items-center justify-center transition-all duration-700 group-hover:scale-110 group-hover:border-[#F5BC6D]/60">
                 <div className="text-[#F5BC6D] transition-all duration-500 group-hover:scale-125">
                   {stat.icon}
                 </div>

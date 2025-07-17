@@ -155,7 +155,7 @@ const PropertyTypes = () => {
       <div className="max-w-5xl mx-auto px-6 md:px-20 py-10">
         <div className="text-xl md:text-5xl tracking-widest heading-font text-center uppercase mb-6">WE&#39;D LOVE TO Hear From You</div>
         <ContactFormSection />
-      </div>
+      </div>  
     </>
   );
 };

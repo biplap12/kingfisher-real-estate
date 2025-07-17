@@ -20,11 +20,11 @@ const BestOfthecity = () => {
   ];
 
   return (
-    <div className="flex flex-wrap justify-center items-center gap-6 p-6 bg-gray-100 rounded-3xl max-w-fit mx-auto mt-5">
+    <div className="flex flex-wrap justify-center items-center gap-6 p-6  max-w-fit mx-auto mt-5">
       {features.map((feature, index) => (
         <div
           key={index}
-          className="flex flex-col items-center justify-center w-56 h-36 p-4 bg-white rounded-2xl transition duration-300 text-center"
+          className="flex flex-col items-center justify-center w-56 h-36 p-4 bg-[#112147] rounded-2xl transition duration-300 text-center"
         >
           <img
             src={feature.img}
@@ -32,7 +32,7 @@ const BestOfthecity = () => {
             className="w-12 h-12 mb-3 object-contain"
             loading="lazy"
           />
-          <p className="text-gray-800 font-semibold text-sm">{feature.title}</p>
+          <p className="text-white font-semibold text-sm">{feature.title}</p>
         </div>
       ))}
     </div>
