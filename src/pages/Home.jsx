@@ -16,6 +16,7 @@ import Testimonial from "../Components/Home/customerOponion.jsx";
 import OurProject from "../Components/Home/ourProject.jsx";
 import PropertySection from "../Components/Home/PropertySection.jsx";
 import HorizontalSlider from "../Components/Home/propertySlider.jsx";
+import CustomCursor from "../Components/CustomCursor/CustomCursor.js";
 
 const Home = () => {
   return (
@@ -31,7 +32,8 @@ const Home = () => {
       <section className="min-h-screen" id="our-story">
         <AboutPage />
       </section>
-      <section className="min-h-screen">
+      <section className="min-h-screen ">
+        {/* <CustomCursor/> */}
         <PropertySection />
       </section>
       <section className="min-h-screen">

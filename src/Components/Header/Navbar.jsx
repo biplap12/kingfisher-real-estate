@@ -54,7 +54,7 @@ export default function Sidebar() {
   return (
     <>
       <div
-        className={`fixed top-0 left-0 w-full z-[999999] transition-all duration-300 ${
+        className={`fixed top-0 left-0 w-full z-[9999] transition-all duration-300 ${
           isTop
             ? "bg-transparent"
             : "bg-[#0E1C41] border-b border-[#F6BC6D] shadow transform "
@@ -64,7 +64,7 @@ export default function Sidebar() {
           {/* Hamburger Menu */}
           <div className="flex items-center gap-8">
             <div
-              className="lg:w-12 lg:h-10 w-10 h-8 relative flex flex-col overflow-hidden justify-center cursor-pointer z-[60]"
+              className="lg:w-12 lg:h-10 w-10 h-8 relative flex flex-col overflow-hidden justify-center cursor-pointer z-[50]"
               onClick={toggleSidebar}
             >
               {[0, 1, 2].map((index) => {

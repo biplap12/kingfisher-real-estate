@@ -193,22 +193,23 @@ export default function HorizontalSlider() {
   return (
     <div className="w-full">
       {/* Horizontal Scroll Section */}
-      <section
-        ref={containerRef}
-        className="relative w-full h-screen overflow-hidden "
-      >
-        <h2 className="text-white text-center text-3xl md:text-6xl heading-font font-bold absolute md:-top-1 left-0 right-0 z-10">
+      <div className="relative w-full ">
+        <h2 className="text-white text-center text-3xl md:text-6xl heading-font font-bold absolute md:-top-40 left-0 right-0 -z-[0]">
           Property Details
         </h2>
-
+      </div>
+      <section
+        ref={containerRef}
+        className="relative w-full h-screen z-[99999]"
+      >
         <div
           ref={trackRef}
-          className="flex w-max h-screen overflow-x-auto scroll-smooth snap-x snap-mandatory"
+          className="flex w-max h-screen overflow-x-auto scroll-smooth snap-x snap-mandatory "
         >
           {images.map((item, index) => (
             <div
               key={`slide-${index}`}
-              className="w-screen h-[90vh] mt-10 sm:mt-10 md:mt-20 flex-shrink-0 relative snap-center"
+              className="w-screen h-screen flex-shrink-0 relative snap-center border-r-8 border-[#0E1A3B]"
             >
               <img
                 src={item.img}
@@ -217,8 +218,8 @@ export default function HorizontalSlider() {
                 onLoad={handleImageLoad}
                 onError={handleImageLoad}
               />
-              <div className="absolute bottom-10 left-1/2 -translate-x-1/2 bg-black/50 text-white px-4 py-3 rounded-lg max-w-[90%] text-center">
-                <h3 className="text-3xl md:text-6xl heading-font font-semibold leading-snug md:leading-[1.2]">
+              <div className="absolute bottom-1/2 left-1/2 -translate-x-1/2  text-white px-4 py-3 rounded-lg w-full text-center">
+                <h3 className="text-3xl md:text-7xl heading-font font-semibold leading-snug md:leading-[1.2]">
                   {item.title}
                 </h3>
                 <p className="mt-2 text-amber-500 text-base md:text-xl">
