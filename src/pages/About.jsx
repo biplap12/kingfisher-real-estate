@@ -63,38 +63,39 @@ export default function About() {
           </div>
         </div>
 
-        <div className="min-h-screen flex flex-col w-full mx-0 lg:mx-20  darkSection">
-          <Link
-            to={"/"}
-            className="flex mt-5 justify-start items-center text-gray-700"
-          >
-            <ArrowLeft size={15} /> Back
-          </Link>
+        <div className="min-h-screen flex flex-col w-full darkSection">
           {/* Our Story */}
           <div className="text-center p-4 lg:p-6 max-w-7xl mx-auto">
+            <Link
+              to={"/"}
+              className="flex mt-5  justify-start items-center text-gray-700"
+            >
+              <ArrowLeft size={15} /> Back
+            </Link>
             <h2 className="text-4xl lg:text-5xl heading-font uppercase mb-6">
               Our Story
             </h2>
-            <p className="text-lg raleway-regular text-gray-500 mx-auto text-justify">
+            <p className="text-lg raleway-regular text-gray-500 mx-auto ">
               Framed by a stunning ocean panorama, Kingfisher&apos;s newest
               landmark on Dubai Islands captures the essence of refined coastal
               living. Nestled along the marina, this exceptional development
               offers a seamless blend of tranquility, energy, and
               connectivity—where every feature is thoughtfully designed to
-              elevate modern lifestyles. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla repellat aperiam enim temporibus id. 
+              elevate modern lifestyles. Lorem ipsum dolor sit amet consectetur,
+              adipisicing elit. Nulla repellat aperiam enim temporibus id.
             </p>
           </div>
 
           <section className="py-10 px-4 sm:px-6 md:px-10 max-w-screen-xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
               {/* Mission */}
-              <div className="rounded-3xl p-6 sm:p-10 md:p-10 bg-white shadow-md">
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-blue-900 mb-6 flex items-center gap-3">
-                  <FaBullseye className="text-blue-700" />
+              <div className="rounded-xl p-6 sm:p-10 md:p-10 border shadow-sm">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-text-[#F5BC6D] mb-6 flex items-center gap-3">
+                  <FaBullseye className="text-[#F5BC6D]" />
                   <span className="mission_font">Our</span>
                   <span className="mission_font">Mission</span>
                 </h3>
-                <ul className="text-base sm:text-lg text-gray-700 space-y-4 raleway-regular">
+                <ul className="text-base sm:text-lg text-gray-50 space-y-4 raleway-regular">
                   <li className="flex items-start gap-3">
                     <FaCheckCircle size={16} className="text-blue-600 mt-1" />
                     Deliver trusted, transparent, and personalized real estate
@@ -122,13 +123,13 @@ export default function About() {
               </div>
 
               {/* Vision */}
-              <div className="rounded-3xl p-6 sm:p-8 md:p-10 bg-white shadow-md">
-                <h3 className="text-2xl lg:text-4xl md:text-4xl font-semibold text-green-900 mb-6 flex items-center gap-3">
-                  <FaEye className="text-green-700" />
+              <div className="rounded-xl p-6 sm:p-8 md:p-10 border shadow-md">
+                <h3 className="text-2xl lg:text-4xl md:text-4xl font-semibold text-[#F5BC6D] mb-6 flex items-center gap-3">
+                  <FaEye className="text-[#F5BC6D]" />
                   <span className="mission_font">Our</span>
                   <span className="mission_font">Vision</span>
                 </h3>
-                <ul className="text-base sm:text-lg text-gray-700 space-y-4 raleway-regular">
+                <ul className="text-base sm:text-lg text-gray-50 space-y-4 raleway-regular">
                   <li className="flex items-start gap-3">
                     <FaCheckCircle className="text-green-600 mt-1" />
                     Become a leading name in innovative and people-first real
@@ -159,7 +160,7 @@ export default function About() {
             </div>
           </section>
 
-          <section className="py-18 px-6 max-w-screen-xl mx-auto">
+          <section className="py-18 px-6 mx-20">
             <h2 className="text-4xl md:text-7xl font-bold text-center mb-20 heading-font">
               Our Team
             </h2>
@@ -261,3 +262,60 @@ export default function About() {
     </div>
   );
 }
+
+// import { useEffect, useRef } from "react";
+// import { gsap } from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// gsap.registerPlugin(ScrollTrigger);
+
+// export default function ExpandImageScroll() {
+//   const containerRef = useRef(null);
+//   const imageRef = useRef(null);
+
+//   useEffect(() => {
+//     const ctx = gsap.context(() => {
+//       gsap.fromTo(
+//         imageRef.current,
+//         { width: "40vw" },
+//         {
+//           width: "100vw",
+//           ease: "power2.out",
+//           scrollTrigger: {
+//             trigger: containerRef.current,
+//             start: "top top",
+//             end: "+=200vh", // <- SLOWER SCROLLING
+//             scrub: 2, // <- SMOOTHER PROGRESS
+//             pin: true,
+//           },
+//         }
+//       );
+//     }, containerRef);
+
+//     return () => ctx.revert();
+//   }, []);
+
+//   return (
+//     <div>
+//       {/* Scroll Animation Section */}
+//       <section
+//         ref={containerRef}
+//         className="h-[100vh] w-screen flex items-center justify-center bg-black overflow-hidden"
+//       >
+//         <img
+//           ref={imageRef}
+//           src="/office-modern.jpg"
+//           alt="Expanding"
+//           className="transition-all will-change-[width] object-cover"
+//           style={{ width: "40vw" }}
+//         />
+//       </section>
+
+//       {/* Content after animation */}
+//       <section className="min-h-screen bg-white text-black p-10">
+//         <h1 className="text-4xl font-bold mb-4">Page Content</h1>
+//         <p>Now scrolling continues as normal.</p>
+//       </section>
+//     </div>
+//   );
+// }

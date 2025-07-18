@@ -54,7 +54,7 @@ export default function Sidebar() {
   return (
     <>
       <div
-        className={`fixed top-0 left-0 w-full z-[999999] transition-all duration-300 ${
+        className={`fixed top-0 left-0 w-full z-[9999] transition-all duration-300 ${
           isTop
             ? "bg-transparent"
             : "bg-[#0E1C41] border-b border-[#F6BC6D] shadow transform "
@@ -64,7 +64,7 @@ export default function Sidebar() {
           {/* Hamburger Menu */}
           <div className="flex items-center gap-8">
             <div
-              className="lg:w-12 lg:h-10 w-10 h-8 relative flex flex-col overflow-hidden justify-center cursor-pointer z-[60]"
+              className="lg:w-12 lg:h-10 w-10 h-8 relative flex flex-col overflow-hidden justify-center cursor-pointer z-[50]"
               onClick={toggleSidebar}
             >
               {[0, 1, 2].map((index) => {
@@ -93,17 +93,19 @@ export default function Sidebar() {
           </div>
 
           {/* Logo */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
-            <Link to="/" className="flex items-center opacity-100">
-              <img
-                src="/logo/logo1.png"
-                alt="logo"
-                className="h-8 md:h-12 object-contain"
-              />
-            </Link>
-          </div>
-
+          {!isOpen && (
+            <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
+              <Link to="/" className="flex items-center opacity-100">
+                <img
+                  src="/logo/logo1.png"
+                  alt="logo"
+                  className="h-8 md:h-12 object-contain"
+                />
+              </Link>
+            </div>
+          )}
           {/* Contact & Enquiry */}
+          {!isOpen && (        
           <div className="flex items-center gap-4 opacity-100">
             <span className="font-medium text-[#F6BC6D] hidden md:block">
               +1 (234) 567-8901
@@ -124,6 +126,7 @@ export default function Sidebar() {
               )}
             </Link>
           </div>
+            )}
         </div>
       </div>
       {/* Sidebar Panel */}

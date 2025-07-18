@@ -139,7 +139,7 @@ const DubaiMapWithTabs = ({
   return (
     <div className="w-full">
       {/* Tabs */}
-      <div className="flex gap-2 flex-wrap mb-4">
+      <div className="flex flex-row justify-center items-center gap-2 flex-wrap mb-4">
         {locationCategories.map((category) => (
           <button
             key={category.id}
