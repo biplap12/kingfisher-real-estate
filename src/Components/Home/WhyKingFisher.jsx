@@ -254,7 +254,7 @@ const features = [
 
 const Whykingfisher = () => {
   return (
-    <section className="bg-[#0d1117] text-white py-20 px-4 md:px-8 lg:px-16" id="why-us">
+    <section className=" text-white py-20 px-4 md:px-8 lg:px-16" id="why-us">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
