@@ -1,136 +1,319 @@
-import { useEffect, useState } from "react";
-import ToggleSidebar from "./toggleSidebar.jsx";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { BiSolidMessageAltDetail } from "react-icons/bi";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, ChevronDown, Menu } from "lucide-react";
+import ToggleSidebar from "./toggleSidebar";
+import { useLocation } from "react-router-dom";
 
-export default function Sidebar() {
+const navItems = [
+  { label: "Home", href: "/" },
+  {
+    label: "Properties",
+    href: "/properties",
+    subMenu: [
+      {
+        label: "Apartments",
+        href: "/properties/apartments",
+        subMenu: [
+          {
+            label: "ABC Apartments",
+            href: "/properties/apartments/abc",
+            description: "This is a description for ABC Apartments",
+            img: "https://modal-cdn.com/navbar-use-case-fine-tuning.webp",
+          },
+          {
+            label: "XYZ Apartments",
+            href: "/properties/apartments/xyz",
+            description: "This is a description for XYZ Apartments",
+            img: "https://modal-cdn.com/navbar-use-case-job-queues.webp",
+          },
+          {
+            label: "Luxury Apartments",
+            href: "/properties/apartments/luxury",
+            description: "This is a description for Luxury Apartments",
+            img: "https://modal-cdn.com/navbar-use-case-sandboxes.webp",
+          },
+        ],
+      },
+      {
+        label: "Villas",
+        href: "/properties/villas",
+        subMenu: [
+          {
+            label: "ABC Villas",
+            href: "/properties/villas/abc1",
+            description: "This is a description for ABC Villas",
+            img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+          },
+          {
+            label: "XYZ Villas",
+            href: "/properties/villas/abc2",
+            description: "This is a description for XYZ Villas",
+            img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+          },
+        ],
+      },
+      {
+        label: "Villamates",
+        href: "/properties/villamates",
+        subMenu: [
+          { label: "ABC Villamates", href: "/properties/villamates/abc1" },
+          { label: "XYZ Villamates", href: "/properties/villamates/abc2" },
+        ],
+      },
+    ],
+  },
+  { label: "About Us", href: "/about" },
+  { label: "Our Services", href: "/services" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
+];
+
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 800);
-  const [showNavbar, setShowNavbar] = useState(true);
-  const [isTop, setIsTop] = useState(true);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [activeSubMenu, setActiveSubMenu] = useState(null);
+  const [isHovered, setIsHovered] = useState(false);
 
   const toggleSidebar = () => setIsOpen((prev) => !prev);
   const closeSidebar = () => setIsOpen(false);
+  const location = useLocation();
+  const currentPath = location.pathname;
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "auto";
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [isOpen]);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 800);
-    };
-
+    const handleResize = () => setIsMobile(window.innerWidth <= 800);
     window.addEventListener("resize", handleResize);
-    handleResize();
-
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
-
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      setIsTop(currentScrollY === 0);
-
-      if (currentScrollY > lastScrollY && currentScrollY > 80) {
-        setShowNavbar(false);
-      } else {
-        setShowNavbar(true);
-      }
-
-      lastScrollY = currentScrollY;
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <>
-      <div
-        className={`fixed top-0 left-0 w-full z-[9999] transition-all duration-300 ${
-          isTop
-            ? "bg-transparent"
-            : "bg-[#0E1C41] border-b border-[#F6BC6D] shadow transform "
-        } ${showNavbar ? "translate-y-0" : "-translate-y-full"}`}
-      >
-        <div className="flex items-center justify-between px-5 md:px-20 py-5 transition-all duration-300">
-          {/* Hamburger Menu */}
-          <div className="flex items-center gap-8">
-            <div
-              className="lg:w-12 lg:h-10 w-10 h-8 relative flex flex-col overflow-hidden justify-center cursor-pointer z-[50]"
-              onClick={toggleSidebar}
-            >
-              {[0, 1, 2].map((index) => {
-                const commonClasses =
-                  "absolute h-[3px] bg-[#F6BC6D] transition-all duration-300 ease-in-out";
-
-                let extraClasses = "";
-                if (index === 0) {
-                  extraClasses = isOpen ? "rotate-45 top-5 w-12" : "top-2 w-12";
-                } else if (index === 1) {
-                  extraClasses = isOpen ? "opacity-0 top-5 w-8" : "top-5 w-8";
-                } else if (index === 2) {
-                  extraClasses = isOpen
-                    ? "-rotate-45 top-5 w-12"
-                    : "top-8 w-12";
-                }
-
-                return (
-                  <span
-                    key={index}
-                    className={`${commonClasses} ${extraClasses}`}
-                  />
-                );
-              })}
-            </div>
-          </div>
-
+    <nav
+      role="navigation"
+      className={`mt-[20px] fixed top-0 left-1/2  transform -translate-x-1/2 bg-[#0E1C41] text-white z-60 w-full max-w-7xl transition-all ${
+        hoveredIndex !== null ? "rounded-t-2xl" : "rounded-2xl"
+      } ${activeSubMenu ? "shadow-lg " : ""}`}
+      onMouseLeave={() => {
+        setHoveredIndex(null);
+        setActiveSubMenu(null);
+      }}
+    >
+      {/* Top Nav */}
+      <div className="px-5 py-3">
+        <div className="flex justify-between items-center">
           {/* Logo */}
-          {!isOpen && (
-            <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
-              <Link to="/" className="flex items-center opacity-100">
-                <img
-                  src="/logo/logo1.png"
-                  alt="logo"
-                  className="h-8 md:h-12 object-contain"
-                />
-              </Link>
-            </div>
-          )}
-          {/* Contact & Enquiry */}
-          {!isOpen && (        
-          <div className="flex items-center gap-4 opacity-100">
-            <span className="font-medium text-[#F6BC6D] hidden md:block">
-              +1 (234) 567-8901
-            </span>
+          <Link to="/" className="text-xl font-bold text-[#F6BC6D]">
+            <img
+              src="/logo/logo1.png"
+              alt="Kingdom Properties logo"
+              className="h-5 md:h-10 object-contain"
+              loading="lazy"
+            />
+          </Link>
 
-            <Link
-              to="/contact"
-              className={`transition cursor-pointer ${
-                isMobile
-                  ? "p-2 rounded-full"
-                  : "px-4 py-2 rounded font-semibold bg-[#F6BC6D] text-[#232266] hover:bg-[#e0a647]"
-              }`}
-            >
-              {isMobile ? (
-                <BiSolidMessageAltDetail color="white" size={30} />
+          {/* Desktop Menu */}
+          <div className="hidden md:flex gap-10 items-center relative">
+            {navItems.map((item, idx) =>
+              item.subMenu ? (
+                <div
+                  key={idx}
+                  className="flex"
+                  onMouseEnter={() => {
+                    setHoveredIndex(idx);
+                    setActiveSubMenu(item.subMenu?.[0]?.label || null);
+                  }}
+                >
+                  <span
+                    className={` font-medium cursor-pointer transition-opacity duration-200 ${
+                      hoveredIndex === idx ? "opacity-100" : "hover:opacity-80"
+                    } ${activeSubMenu ? "text-[#F6BC6D]" : ""}`}
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded={hoveredIndex === idx}
+                  >
+                    <div className="flex justify-center items-center gap-1">
+                      {" "}
+                      {item.label}
+                      <span
+                        className={` ${
+                          hoveredIndex === idx
+                            ? "opacity-100"
+                            : "hover:opacity-80"
+                        } `}
+                      >
+                        <ChevronDown className="w-3 h-3" />
+                      </span>
+                    </div>
+                  </span>
+                </div>
               ) : (
-                "Enquiry Now?"
-              )}
-            </Link>
-          </div>
+                <Link
+                  key={idx}
+                  to={item.href}
+                  className={`font-medium transition-opacity ${
+                    currentPath === item.href
+                      ? "text-[#F6BC6D]"
+                      : "hover:text-[#F6BC6D] hover:opacity-80"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              )
             )}
+          </div>
+          {/* CTA Button */}
+          <div className="flex gap-4 items-center">
+            {isMobile ? (
+              <Menu onClick={toggleSidebar} color="white" size={30} />
+            ) : (
+              <Link to="/contact" className="flex gap-3 items-center">
+                <div
+                  className="flex items-center rounded-full cursor-pointer relative overflow-hidden"
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                >
+                  <span
+                    className={`font-medium z-10 pl-4 pr-2 py-2 transition-colors duration-300 ${
+                      isHovered ? "text-[#1b1b3a]" : "text-[#F6BC6D]"
+                    }`}
+                  >
+                    Contact
+                  </span>
+                  <div className="relative z-20 rounded-full h-10 w-10 flex items-center justify-center bg-[#F6BC6D]">
+                    <ArrowRight
+                      className={`transition-transform rotate-320 duration-300 ${
+                        isHovered
+                          ? "translate-x-1 text-[#1b1b3a]"
+                          : "text-[#232266]"
+                      }`}
+                      size={20}
+                    />
+                  </div>
+                  <div
+                    className={`absolute top-0 bottom-0 right-0 bg-[#F6BC6D] rounded-full transition-all duration-300 ease-in-out ${
+                      isHovered ? "w-full" : "w-10 right-0"
+                    }`}
+                  />
+                </div>
+              </Link>
+            )}
+          </div>
         </div>
       </div>
+
+      {/* Submenu */}
+      <AnimatePresence>
+        {hoveredIndex !== null && navItems[hoveredIndex]?.subMenu && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="absolute top-full left-0 w-full bg-[#0E1C41]/95 z-40 px-6 pt-8 pb-10 rounded-b-2xl shadow-2xl backdrop-blur-md"
+          >
+            <div className="relative flex">
+              {/* Left Panel */}
+              <div className="flex flex-col w-1/3 bg-[#1A2B5F]/70 backdrop-blur border border-[#263a75] rounded-xl p-5">
+                <div className="flex gap-5">
+                  <div className="w-1/2">
+                    <h3 className="text-[#F6BC6D] font-bold text-xl mb-3">
+                      Title
+                    </h3>
+                    <p className="text-sm text-white/80">
+                      Explore different categories of properties we offer.
+                    </p>
+                  </div>
+                  <div className="flex flex-col gap-2 w-1/2">
+                    {navItems[hoveredIndex].subMenu.map((column, colIdx) => (
+                      <button
+                        key={colIdx}
+                        onClick={() => setActiveSubMenu(column.label)}
+                        className={`flex items-center justify-between px-3 py-2 text-sm font-medium text-white rounded-full border border-[#334b85] hover:bg-[#2d437c] transition-all duration-200 gap-3 ${
+                          colIdx === 1 ? "w-full" : "w-fit"
+                        }`}
+                      >
+                        <span>{column.label}</span>
+                        <ArrowRight
+                          size={16}
+                          className="text-black bg-amber-300/50 rounded-full rotate-320 h-6 w-6"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Panel */}
+              <div className="relative w-2/3">
+                {navItems[hoveredIndex].subMenu.map((column, colIdx) => {
+                  const isActive = activeSubMenu === column.label;
+                  return (
+                    <div
+                      key={colIdx}
+                      className={`absolute w-full transition-all duration-500 ease-in-out transform ${
+                        isActive
+                          ? "opacity-100 translate-x-0 pointer-events-auto"
+                          : "opacity-0 translate-x-4 pointer-events-none"
+                      }`}
+                    >
+                      {column.subMenu && (
+                        <div className="relative px-4 md:px-6">
+                          <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
+                            {column.subMenu
+                              .slice(0, 3)
+                              .map((subItem, subIdx) => (
+                                <Link
+                                  to={subItem.href}
+                                  key={subIdx}
+                                  onClick={() => {
+                                    setHoveredIndex(null);
+                                    setActiveSubMenu(null);
+                                  }}
+                                  className="group bg-[#22386f] hover:bg-[#2c4787] transition-all duration-300 rounded-xl border border-[#334b85] overflow-hidden"
+                                >
+                                  <div className="h-[185px] w-full overflow-hidden rounded-t-xl p-4 bg-[#22386f]">
+                                    <h3 className="text-white font-semibold text-lg mb-2">
+                                      {subItem.label}
+                                    </h3>
+                                    <div className="flex h-full gap-4 relative">
+                                      <div className="w-1/2">
+                                        <p className="text-[#F6BC6D] text-sm">
+                                          {subItem.description}
+                                        </p>
+                                      </div>
+                                      <div className="w-1/2 absolute -right-5 bottom-0">
+                                        <img
+                                          src={subItem.img}
+                                          alt={subItem.label}
+                                          className="w-full h-[100px] object-cover rounded-md"
+                                          loading="lazy"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </Link>
+                              ))}
+                          </div>
+                          <div className="flex justify-end mt-2">
+                            <Link
+                              to={column.href}
+                              className="text-sm font-medium text-[#F6BC6D] hover:underline flex items-center gap-1"
+                            >
+                              View All <ArrowRight size={16} />
+                            </Link>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       {/* Sidebar Panel */}
       {isOpen && <ToggleSidebar onClose={closeSidebar} />}
-    </>
+    </nav>
   );
 }

@@ -106,7 +106,7 @@ const OurServices = () => {
                 onMouseLeave={() => setHoveredCard(null)}
               >
                 {/* Gradient background on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-50 to-orange-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                {/* <div className="absolute inset-0 bg-gradient-to-br from-amber-50 to-orange-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div> */}
 
                 {/* Content */}
                 <div className="relative z-10">
@@ -121,14 +121,14 @@ const OurServices = () => {
 
                   {/* Title */}
                   <div className="flex items-center justify-center lg:justify-start">
-                    <h3 className="text-2xl font-semibold text-white mb-4 group-hover:text-slate-900 transition-colors ">
+                    <h3 className="text-2xl font-semibold text-white mb-4 group-hover:text-[#F5BC6D] transition-colors ">
                       {service.title}
                     </h3>
                   </div>
 
                   {/* Description */}
                   <div className="flex items-center justify-center text-center lg:justify-start">
-                    <p className="text-gray-600 leading-relaxed mb-6 group-hover:text-gray-700 transition-colors raleway-regular">
+                    <p className="text-gray-400 leading-relaxed mb-6 group-hover:text-white transition-colors raleway-regular">
                       {service.description}
                     </p>
                   </div>
