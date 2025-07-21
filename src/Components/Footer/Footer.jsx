@@ -14,12 +14,13 @@ const Footer = () => {
   return (
     <div className="max-h-screen h-[700px] md:h-[450px]  relative flex flex-col">
       <footer className="absolute bottom-0 left-0 w-full text-white overflow-hidden">
+
         {/* Background Image */}
         <div className="absolute bottom-0 left-0 right-0 top-0">
           <img
             src="./footer/BuildFooter.png"
             alt=" Footer Background"
-            className="w-full h-full object-cover brightness-75"
+            className="w-full h-full object-cover"
           />
         </div>
         {/* Main Footer Content */}

@@ -90,7 +90,7 @@ export default function Navbar() {
   return (
     <nav
       role="navigation"
-      className={`mt-[20px] fixed top-0 left-1/2 transform -translate-x-1/2 bg-[#0E1C41] text-white z-50 w-full max-w-7xl transition-all ${
+      className={`mt-[20px] fixed top-0 left-1/2  transform -translate-x-1/2 bg-[#0E1C41] text-white z-60 w-full max-w-7xl transition-all ${
         hoveredIndex !== null ? "rounded-t-2xl" : "rounded-2xl"
       } ${activeSubMenu ? "shadow-lg " : ""}`}
       onMouseLeave={() => {

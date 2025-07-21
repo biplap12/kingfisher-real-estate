@@ -1,9 +1,9 @@
 import MapSection from "../Components/Home/MapSection.jsx";
 // import PaymentPlanSection from "../Components/Home/PaymentPlanSection.jsx";
 import FloorPlanSelector from "../Components/Home/FloorPlanSelector.jsx";
-import IconicProperties from "../Components/Home/IconicProperties.jsx";
+// import IconicProperties from "../Components/Home/IconicProperties.jsx";
 import Whykingfisher from "../Components/Home/WhyKingFisher.jsx";
-import GallerySlider from "../Components/PropertyDetails/slider.jsx";
+// import GallerySlider from "../Components/PropertyDetails/slider.jsx";
 // import Hero1 from "../Components/Home/BackgroundImageSection.jsx";
 // import Gallery from "../Components/Home/Gallery.jsx";
 import PartnerLogos from "../Components/Partners/Associated-Partners.jsx";
@@ -12,11 +12,12 @@ import PartnerLogos from "../Components/Partners/Associated-Partners.jsx";
 import Home1 from "../Components/Home/home.jsx";
 
 import AboutPage from "../Components/Home/AboutPage.jsx";
-import Testimonial from "../Components/Home/customerOponion.jsx";
-import OurProject from "../Components/Home/ourProject.jsx";
+// import Testimonial from "../Components/Home/customerOponion.jsx";
+// import OurProject from "../Components/Home/ourProject.jsx";
 import PropertySection from "../Components/Home/PropertySection.jsx";
 import HorizontalSlider from "../Components/Home/propertySlider.jsx";
-import CustomCursor from "../Components/CustomCursor/CustomCursor.js";
+// import CustomCursor from "../Components/CustomCursor/CustomCursor.js";
+import ReviewCarousel from "../Components/Home/ReviewCarousel.jsx";
 
 const Home = () => {
   return (
@@ -56,7 +57,7 @@ const Home = () => {
         <FloorPlanSelector />
       </section>
       <section>
-        <Testimonial />
+        <ReviewCarousel />
       </section>
       <section>
         <PartnerLogos />

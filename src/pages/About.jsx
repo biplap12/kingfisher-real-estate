@@ -1,10 +1,8 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { TbArrowUpDashed } from "react-icons/tb";
 import { MenuContext } from "../state/MenuContext";
 import Breadcrumbs from "../Components/Breadcrumbs/Breadcrumbs";
-import { Link } from "react-router-dom";
 import {
   FaArrowRight,
   FaBullseye,
@@ -16,6 +14,7 @@ import {
 } from "react-icons/fa";
 import { showErrorToast } from "../config/toastConfig";
 import api from "../services/api";
+import PurposeSection from "../Components/AboutSection/PurposeSection";
 
 export default function About() {
   const divRef = useRef(null);
@@ -52,12 +51,11 @@ export default function About() {
           style={{
             backgroundImage:
               "url('https://images.unsplash.com/photo-1502139214982-d0ad755818d8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
-          }}
-        >
+          }}>
           <div className="absolute inset-0 backdrop-blur-sm z-20" />
           <div className="relative z-30 text-center max-w-2xl mx-auto px-6 pt-32 pb-12">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 heading-font">
-              About
+              About Us
             </h1>
             <Breadcrumbs />
           </div>
@@ -65,7 +63,7 @@ export default function About() {
 
         <div className="min-h-screen flex flex-col w-full darkSection">
           {/* Our Story */}
-          <div className="text-center p-4 lg:p-6 max-w-7xl mx-auto">
+          {/* <div className="text-center p-4 lg:p-6 max-w-7xl mx-auto">
             <Link
               to={"/"}
               className="flex mt-5  justify-start items-center text-gray-700"
@@ -73,7 +71,7 @@ export default function About() {
               <ArrowLeft size={15} /> Back
             </Link>
             <h2 className="text-4xl lg:text-5xl heading-font uppercase mb-6">
-              Our Story
+              Our Purpose
             </h2>
             <p className="text-lg raleway-regular text-gray-500 mx-auto ">
               Framed by a stunning ocean panorama, Kingfisher&apos;s newest
@@ -84,83 +82,12 @@ export default function About() {
               elevate modern lifestyles. Lorem ipsum dolor sit amet consectetur,
               adipisicing elit. Nulla repellat aperiam enim temporibus id.
             </p>
-          </div>
+          </div> */}
 
-          <section className="py-10 px-4 sm:px-6 md:px-10 max-w-screen-xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-              {/* Mission */}
-              <div className="rounded-xl p-6 sm:p-10 md:p-10 border shadow-sm">
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-text-[#F5BC6D] mb-6 flex items-center gap-3">
-                  <FaBullseye className="text-[#F5BC6D]" />
-                  <span className="mission_font">Our</span>
-                  <span className="mission_font">Mission</span>
-                </h3>
-                <ul className="text-base sm:text-lg text-gray-50 space-y-4 raleway-regular">
-                  <li className="flex items-start gap-3">
-                    <FaCheckCircle size={16} className="text-blue-600 mt-1" />
-                    Deliver trusted, transparent, and personalized real estate
-                    services.
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <FaCheckCircle size={16} className="text-blue-600 mt-1" />
-                    Empower individuals and families through smart property
-                    decisions.
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <FaCheckCircle size={16} className="text-blue-600 mt-1" />
-                    Build lasting value in communities we serve.
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <FaCheckCircle size={16} className="text-blue-600 mt-1" />
-                    Operate with integrity, empathy, and a client-first mindset.
-                  </li>
-
-                  <li className="flex items-start gap-3">
-                    <FaCheckCircle size={16} className="text-blue-600 mt-1" />
-                    Create spaces that inspire comfort, safety, and belonging.
-                  </li>
-                </ul>
-              </div>
-
-              {/* Vision */}
-              <div className="rounded-xl p-6 sm:p-8 md:p-10 border shadow-md">
-                <h3 className="text-2xl lg:text-4xl md:text-4xl font-semibold text-[#F5BC6D] mb-6 flex items-center gap-3">
-                  <FaEye className="text-[#F5BC6D]" />
-                  <span className="mission_font">Our</span>
-                  <span className="mission_font">Vision</span>
-                </h3>
-                <ul className="text-base sm:text-lg text-gray-50 space-y-4 raleway-regular">
-                  <li className="flex items-start gap-3">
-                    <FaCheckCircle className="text-green-600 mt-1" />
-                    Become a leading name in innovative and people-first real
-                    estate.
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <FaCheckCircle className="text-green-600 mt-1" />
-                    Shape communities that are sustainable, smart, and
-                    connected.
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <FaCheckCircle className="text-green-600 mt-1" />
-                    Redefine the property experience through technology and
-                    design.
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <FaCheckCircle className="text-green-600 mt-1" />
-                    Lead with purpose, delivering homes and spaces that elevate
-                    lives.
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <FaCheckCircle className="text-green-600 mt-1" />
-                    Foster long-term relationships built on trust and
-                    excellence.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </section>
+          <PurposeSection />
 
           <section className="py-18 px-6 mx-20">
+           
             <h2 className="text-4xl md:text-7xl font-bold text-center mb-20 heading-font">
               Our Team
             </h2>
@@ -176,8 +103,7 @@ export default function About() {
                   <div
                     key={member._id}
                     className="relative group rounded-md w-full overflow-hidden"
-                    style={{ height: "500px" }}
-                  >
+                    style={{ height: "500px" }}>
                     {/* Image */}
                     <img
                       src={
@@ -208,8 +134,7 @@ export default function About() {
                             href={member.facebookUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="hover:text-blue-500"
-                          >
+                            className="hover:text-blue-500">
                             <FaFacebook size={24} />
                           </a>
                         )}
@@ -218,8 +143,7 @@ export default function About() {
                             href={member.twitterUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="hover:text-gray-900"
-                          >
+                            className="hover:text-gray-900">
                             <FaInstagram size={24} />
                           </a>
                         )}
@@ -228,8 +152,7 @@ export default function About() {
                             href={member.linkedinUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="hover:text-[#0A66C2]"
-                          >
+                            className="hover:text-[#0A66C2]">
                             <FaLinkedin size={24} />
                           </a>
                         )}
