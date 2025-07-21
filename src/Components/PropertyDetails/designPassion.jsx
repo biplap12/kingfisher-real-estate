@@ -34,15 +34,16 @@ const DesignPassion = () => {
       {features.map((feature, index) => (
         <div
           key={index}
-          className="flex flex-col items-center justify-center w-56 h-36 p-4 bg-[#021b57] rounded-xl transition duration-300 text-center"
-        >
+          className="flex flex-col items-center justify-center w-56 h-36 p-4 bg-[#112147] rounded-xl transition duration-300 text-center">
           <img
             src={feature.img}
             alt={feature.alt}
             className="w-12 h-12 mb-3 object-contain"
             loading="lazy"
           />
-          <p className="text-[#F6BC6D] font-semibold text-sm">{feature.title}</p>
+          <p className="text-[#F6BC6D] font-semibold text-sm">
+            {feature.title}
+          </p>
         </div>
       ))}
     </div>

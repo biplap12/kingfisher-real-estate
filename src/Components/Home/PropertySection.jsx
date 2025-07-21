@@ -70,6 +70,15 @@ const bottomBarVariants = {
   },
 };
 
+const cardDescriptionVariants = {
+  initial: { opacity: 0, y: 40 },
+  hover: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
+
 const PropertySection = () => {
   return (
     <motion.section
@@ -77,8 +86,7 @@ const PropertySection = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
-      variants={sectionVariants}
-    >
+      variants={sectionVariants}>
       <h2 className="text-4xl sm:text-6xl font-bold mb-4 text-center text-[#F6BC6D] heading-font">
         <span className="text-primary">Property</span>
       </h2>
@@ -93,8 +101,7 @@ const PropertySection = () => {
             whileInView="visible"
             whileHover="hover"
             viewport={{ once: true, amount: 0.3 }}
-            variants={itemVariants}
-          >
+            variants={itemVariants}>
             {/* Image */}
             <img
               src={item.image}
@@ -111,8 +118,7 @@ const PropertySection = () => {
                 {item.tag.map((tag, i) => (
                   <div
                     key={i + tag}
-                    className="bg-[#003560] rounded-xl px-3 py-1.5 text-sm text-[#F6BC6D]"
-                  >
+                    className="bg-[#003560] rounded-xl px-3 py-1.5 text-sm text-[#F6BC6D]">
                     {tag}
                   </div>
                 ))}
@@ -124,18 +130,15 @@ const PropertySection = () => {
               <motion.button
                 className="border border-[#F6BC6D] rounded-md px-6 py-2 text-sm uppercase tracking-wider hover:bg-[#F6BC6D] transition duration-300"
                 whileHover="hover"
-                variants={buttonVariants}
-              >
+                variants={buttonVariants}>
                 View All
               </motion.button>
             </div>
-
             {/* Bottom Bar */}
             <motion.div
-              className="absolute bottom-0 p-3 bg-white/20 w-full text-white"
-              variants={bottomBarVariants}
+              className="absolute hidden group-hover:flex  bottom-0 z-50 p-3 bg-white/20 w-full text-white"
               initial="initial"
-            >
+              variants={cardDescriptionVariants}>
               <h3 className="text-2xl font-bold mb-1">{item.title}</h3>
               <p className="text-sm line-clamp-3">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
