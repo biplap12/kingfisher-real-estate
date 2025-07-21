@@ -17,19 +17,19 @@ const navItems = [
         subMenu: [
           {
             label: "ABC Apartments",
-            href: "/properties/apartments/abc",
+            href: "/properties/apartments/apartments",
             description: "This is a description for ABC Apartments",
             img: "https://modal-cdn.com/navbar-use-case-fine-tuning.webp",
           },
           {
             label: "XYZ Apartments",
-            href: "/properties/apartments/xyz",
+            href: "/properties/apartments/apartments",
             description: "This is a description for XYZ Apartments",
             img: "https://modal-cdn.com/navbar-use-case-job-queues.webp",
           },
           {
             label: "Luxury Apartments",
-            href: "/properties/apartments/luxury",
+            href: "/properties/apartments/apartments",
             description: "This is a description for Luxury Apartments",
             img: "https://modal-cdn.com/navbar-use-case-sandboxes.webp",
           },
@@ -96,8 +96,7 @@ export default function Navbar() {
       onMouseLeave={() => {
         setHoveredIndex(null);
         setActiveSubMenu(null);
-      }}
-    >
+      }}>
       {/* Top Nav */}
       <div className="px-5 py-3">
         <div className="flex justify-between items-center">
@@ -121,16 +120,14 @@ export default function Navbar() {
                   onMouseEnter={() => {
                     setHoveredIndex(idx);
                     setActiveSubMenu(item.subMenu?.[0]?.label || null);
-                  }}
-                >
-                  <span
+                  }}>
+                  <Link to={item.href}
                     className={` font-medium cursor-pointer transition-opacity duration-200 ${
                       hoveredIndex === idx ? "opacity-100" : "hover:opacity-80"
                     } ${activeSubMenu ? "text-[#F6BC6D]" : ""}`}
                     role="button"
                     aria-haspopup="true"
-                    aria-expanded={hoveredIndex === idx}
-                  >
+                    aria-expanded={hoveredIndex === idx}>
                     <div className="flex justify-center items-center gap-1">
                       {" "}
                       {item.label}
@@ -139,12 +136,11 @@ export default function Navbar() {
                           hoveredIndex === idx
                             ? "opacity-100"
                             : "hover:opacity-80"
-                        } `}
-                      >
+                        } `}>
                         <ChevronDown className="w-3 h-3" />
                       </span>
                     </div>
-                  </span>
+                  </Link>
                 </div>
               ) : (
                 <Link
@@ -154,11 +150,10 @@ export default function Navbar() {
                     currentPath === item.href
                       ? "text-[#F6BC6D]"
                       : "hover:text-[#F6BC6D] hover:opacity-80"
-                  }`}
-                >
+                  }`}>
                   {item.label}
                 </Link>
-              )
+              ),
             )}
           </div>
           {/* CTA Button */}
@@ -170,13 +165,11 @@ export default function Navbar() {
                 <div
                   className="flex items-center rounded-full cursor-pointer relative overflow-hidden"
                   onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
-                >
+                  onMouseLeave={() => setIsHovered(false)}>
                   <span
                     className={`font-medium z-10 pl-4 pr-2 py-2 transition-colors duration-300 ${
                       isHovered ? "text-[#1b1b3a]" : "text-[#F6BC6D]"
-                    }`}
-                  >
+                    }`}>
                     Contact
                   </span>
                   <div className="relative z-20 rounded-full h-10 w-10 flex items-center justify-center bg-[#F6BC6D]">
@@ -209,8 +202,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="absolute top-full left-0 w-full bg-[#0E1C41]/95 z-40 px-6 pt-8 pb-10 rounded-b-2xl shadow-2xl backdrop-blur-md"
-          >
+            className="absolute top-full left-0 w-full bg-[#0E1C41]/95 z-40 px-6 pt-8 pb-10 rounded-b-2xl shadow-2xl backdrop-blur-md">
             <div className="relative flex">
               {/* Left Panel */}
               <div className="flex flex-col w-1/3 bg-[#1A2B5F]/70 backdrop-blur border border-[#263a75] rounded-xl p-5">
@@ -225,19 +217,18 @@ export default function Navbar() {
                   </div>
                   <div className="flex flex-col gap-2 w-1/2">
                     {navItems[hoveredIndex].subMenu.map((column, colIdx) => (
-                      <button
+                      <Link to={column.href}
                         key={colIdx}
                         onClick={() => setActiveSubMenu(column.label)}
                         className={`flex items-center justify-between px-3 py-2 text-sm font-medium text-white rounded-full border border-[#334b85] hover:bg-[#2d437c] transition-all duration-200 gap-3 ${
                           colIdx === 1 ? "w-full" : "w-fit"
-                        }`}
-                      >
+                        }`}>
                         <span>{column.label}</span>
                         <ArrowRight
                           size={16}
                           className="text-black bg-amber-300/50 rounded-full rotate-320 h-6 w-6"
                         />
-                      </button>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -254,8 +245,7 @@ export default function Navbar() {
                         isActive
                           ? "opacity-100 translate-x-0 pointer-events-auto"
                           : "opacity-0 translate-x-4 pointer-events-none"
-                      }`}
-                    >
+                      }`}>
                       {column.subMenu && (
                         <div className="relative px-4 md:px-6">
                           <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
@@ -269,8 +259,7 @@ export default function Navbar() {
                                     setHoveredIndex(null);
                                     setActiveSubMenu(null);
                                   }}
-                                  className="group bg-[#22386f] hover:bg-[#2c4787] transition-all duration-300 rounded-xl border border-[#334b85] overflow-hidden"
-                                >
+                                  className="group bg-[#22386f] hover:bg-[#2c4787] transition-all duration-300 rounded-xl border border-[#334b85] overflow-hidden">
                                   <div className="h-[185px] w-full overflow-hidden rounded-t-xl p-4 bg-[#22386f]">
                                     <h3 className="text-white font-semibold text-lg mb-2">
                                       {subItem.label}
@@ -297,8 +286,7 @@ export default function Navbar() {
                           <div className="flex justify-end mt-2">
                             <Link
                               to={column.href}
-                              className="text-sm font-medium text-[#F6BC6D] hover:underline flex items-center gap-1"
-                            >
+                              className="text-sm font-medium text-[#F6BC6D] hover:underline flex items-center gap-1">
                               View All <ArrowRight size={16} />
                             </Link>
                           </div>

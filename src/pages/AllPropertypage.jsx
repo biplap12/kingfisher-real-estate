@@ -5,6 +5,10 @@ import Breadcrumbs from "../Components/Breadcrumbs/Breadcrumbs";
 import { useBannerHeight } from "../Context/BannerHeightContext";
 import api from "../services/api";
 
+
+
+
+
 const AllPropertypage = () => {
   const bannerRef = useRef(null);
   // const { setMenuColor } = useContext(MenuContext);
@@ -68,8 +72,7 @@ const AllPropertypage = () => {
           height: "75vh",
           padding: "0 50px",
         }}
-        ref={bannerRef}
-      >
+        ref={bannerRef}>
         <div className="absolute inset-0 bg-black/60 z-0"></div>
 
         <div className="absolute top-10/12 left-1/2 z-10 transform -translate-x-1/2 -translate-y-1/2 text-center p-6">
@@ -78,8 +81,7 @@ const AllPropertypage = () => {
             className="font-bold heading-font tracking-widest uppercase leading-tight"
             style={{
               fontSize: "clamp(1.75rem, 4vw, 3.5rem)",
-            }}
-          >
+            }}>
             ALL Properties
           </button>
           <Breadcrumbs />

@@ -34,9 +34,9 @@ const SimpleSwiper = ({ images = [], propertyName }) => {
   return (
     <div className="relative">
       {/* Main Image */}
-      <div className="relative overflow-hidden rounded-2xl bg-gray-100 group">
+      <div className="relative overflow-hidden rounded-2xl group">
         <img
-          src={images[currentSlide]}
+          src={images[currentSlide] || "../../../public/gallery/bg2.jpg"}
           alt={`${propertyName} - Image ${currentSlide + 1}`}
           className="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105"
         />
